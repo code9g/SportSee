@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-full.svg";
 
+const horizontalLinks = [
+  { title: "Accueil", to: "/home" },
+  { title: "Profil", to: "/profil" },
+  { title: "Réglage", to: "/setting" },
+  { title: "Communauté", to: "/forum" },
+];
+
 function HorizontalPanel() {
   return (
     <header className="horizontal-panel">
@@ -9,26 +16,13 @@ function HorizontalPanel() {
       </Link>
       <nav className="horizontal-menu">
         <ul className="nav-menu">
-          <li className="nav-item">
-            <Link className="nav-link" to="/home">
-              Accueil
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/profil">
-              Profil
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/setting">
-              Réglage
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/setting">
-              Communauté
-            </Link>
-          </li>
+          {horizontalLinks.map(({ title, to }, index) => (
+            <li key={index} className="nav-item">
+              <Link className="nav-link" to={to}>
+                {title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

@@ -94,6 +94,10 @@ body {
 
 .vertical-panel {
   grid-area: vertical-panel;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.6rem;
 
   background: var(--secondary-color);
 }
