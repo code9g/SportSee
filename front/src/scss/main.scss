@@ -11,9 +11,6 @@
 :root {
   --primary-color: #ff0101;
   --secondary-color: #020203;
-
-  --weight-color: #282d30;
-  --calorie-color: #e60000;
 }
 
 a {
@@ -150,21 +147,6 @@ h2 {
   grid-area: main-content;
 }
 
-.circle {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-
-  &-weight {
-    background: var(--weight-color);
-  }
-
-  &-calorie {
-    background: var(--calorie-color);
-  }
-}
-
 .activity {
   display: flex;
   flex-direction: column;
@@ -173,24 +155,6 @@ h2 {
   background: #fbfbfb;
   padding: 2.4rem;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-weight: 500;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .legend {
-    display: flex;
-    gap: 5.2rem;
-    font-size: 1.4rem;
-  }
 }
 
 .activity-tooltip {
