@@ -4,7 +4,6 @@ import getUserAllApi from "../services/getUserAllApi";
 
 function Profil({ id }) {
   const [user, setUser] = useState(null);
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,11 +33,18 @@ function Profil({ id }) {
   return (
     <>
       <div className="container">
-        <h2>
+        <h2 className="title-name">
           Bonjour{" "}
           <span className="primary-color">{user.userInfos.firstName}</span>
         </h2>
-        <section className="activities"></section>
+        <p className="info">
+          Félicitation ! Vous avez explosé vos objectifs hier 👏
+        </p>
+        <section className="activity"></section>
+        <section className="average"></section>
+        <section className="performance"></section>
+        <section className="score"></section>
+        <section className="key"></section>
       </div>
     </>
   );
