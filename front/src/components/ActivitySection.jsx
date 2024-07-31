@@ -13,18 +13,28 @@ import {
 import getUserActivityApi from "../services/getUserActivityApi";
 import ActivityTooltip from "./ActivityTooltip";
 
+/**
+ * Composant pour afficher l'activité quotidienne de l'utilisateur sous forme de graphique à barres.
+ *
+ * Ce composant récupère les données d'activité pour un utilisateur spécifique et les affiche en utilisant
+ * un graphique à barres. Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
+ * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
+ *
+ * @param {Object} props - Les propriétés du composant.
+ * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données d'activité sont récupérées.
+ * @returns {JSX.Element} - Un élément JSX contenant le graphique à barres et les icônes associées.
+ */
 function ActivitySection({ userId }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetching = async () => {
       const activity = await getUserActivityApi(userId);
       console.log("Activity data:", activity);
-
       setData(
-        activity.sessions.map((item, index) => ({
+        activity.map((item, index) => ({
           ...item,
           num: index + 1,
         }))
@@ -33,7 +43,7 @@ function ActivitySection({ userId }) {
 
     setIsLoading(true);
     setError(null);
-    fetchData()
+    fetching()
       .catch((e) => {
         setError("Failed to fetch activity data");
         console.error(e);
