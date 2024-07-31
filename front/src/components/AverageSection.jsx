@@ -1,0 +1,147 @@
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import getUserAverageSessionsApi from "../services/getUserAverageSessionsApi";
+import AverageTooltip from "./AverageTooltip";
+
+/**
+ * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.
+ *
+ * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
+ * un graphique linéaire. La ligne représente la durée des sessions, avec des détails supplémentaires affichés
+ * dans un tooltip personnalisé lors du survol de la ligne.
+ *
+ * @param {Object} props - Les propriétés du composant.
+ * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données de session sont récupérées.
+ * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
+ */
+const AverageSection = ({ userId }) => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetching = async () => {
+      setError(null);
+      const average = await getUserAverageSessionsApi(userId);
+      console.log(
+        "Average-sessions data:",
+        average,
+        "length:",
+        average.length,
+        "test:",
+        average && average.length
+      );
+
+      setData(
+        average.map((item, index) => ({
+          ...item,
+          num: index + 1,
+        }))
+      );
+    };
+
+    setIsLoading(true);
+    fetching()
+      .catch((e) => {
+        setError("Failed to fetch average-sessions data");
+        console.error(e);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [userId]);
+
+  if (isLoading) {
+    return <div>Chargement des données</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (data.length === 0) {
+    return <div>Aucune donnée disponible</div>;
+  }
+
+  const days = ["L", "M", "M", "J", "V", "S", "D"];
+
+  return (
+    <section className="average">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          data={data}
+          margin={{ top: 20, right: 10, left: 10, bottom: 20 }}
+        >
+          <defs>
+            <linearGradient id="line-gradient">
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="30%" />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="100%" />
+            </linearGradient>
+          </defs>
+          <text
+            x={10}
+            y={30}
+            textAnchor="left"
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 500,
+              fill: "#ffffff",
+              fillOpacity: "0.5",
+            }}
+          >
+            Durée moyenne des sessions
+          </text>
+          <XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            tick={{ fill: "#ffffff", fillOpacity: "50%" }}
+            stroke="#ffffff"
+            tickMargin={10}
+            tickFormatter={(day) => days[day - 1]}
+          />
+          <YAxis
+            dataKey="sessionLength"
+            hide={true}
+            domain={["dataMin - 10", "dataMax + 20"]}
+          />
+          <Line
+            dataKey="sessionLength"
+            type="natural"
+            stroke="url(#line-gradient)"
+            strokeWidth={2.5}
+            dot={false}
+            activeDot={{
+              stroke: "#FFFFFF",
+              strokeOpacity: "50%",
+              strokeWidth: 10,
+            }}
+          />
+          <Tooltip
+            content={AverageTooltip}
+            cursor={{
+              stroke: "#000000",
+              strokeOpacity: "10%",
+              strokeWidth: "20%",
+              height: "100%",
+            }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </section>
+  );
+};
+
+AverageSection.propTypes = {
+  userId: PropTypes.number,
+};
+
+export default AverageSection;
