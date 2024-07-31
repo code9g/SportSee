@@ -22,7 +22,7 @@ import AverageTooltip from "./AverageTooltip";
  * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données de session sont récupérées.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
  */
-const AverageSection = ({ userId }) => {
+function AverageSection({ userId }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -131,7 +131,7 @@ const AverageSection = ({ userId }) => {
       </ResponsiveContainer>
     </section>
   );
-};
+}
 
 AverageSection.propTypes = {
   userId: PropTypes.number,
