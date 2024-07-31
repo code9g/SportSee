@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import getUserApi from "../services/getUserApi";
 
-function Profil({ id = 12 }) {
+function Profil({ id }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
