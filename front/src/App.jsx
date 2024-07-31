@@ -3,7 +3,7 @@ import Layout from "./layouts/Layout";
 import Profil from "./pages/Profil";
 
 function App() {
-  const defaultUserId = 12;
+  const defaultUserId = 18;
 
   return (
     <>
