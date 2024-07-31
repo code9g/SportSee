@@ -31,15 +31,7 @@ const AverageSection = ({ userId }) => {
     const fetching = async () => {
       setError(null);
       const average = await getUserAverageSessionsApi(userId);
-      console.log(
-        "Average-sessions data:",
-        average,
-        "length:",
-        average.length,
-        "test:",
-        average && average.length
-      );
-
+      console.log("Average-sessions data:", average);
       setData(
         average.map((item, index) => ({
           ...item,
@@ -49,6 +41,7 @@ const AverageSection = ({ userId }) => {
     };
 
     setIsLoading(true);
+    setError(null);
     fetching()
       .catch((e) => {
         setError("Failed to fetch average-sessions data");
