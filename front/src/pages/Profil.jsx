@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import ActivitySection from "../components/ActivitySection";
 import getUserAllApi from "../services/getUserAllApi";
 
 function Profil({ id }) {
@@ -40,7 +41,7 @@ function Profil({ id }) {
         <p className="info">
           Félicitation ! Vous avez explosé vos objectifs hier 👏
         </p>
-        <section className="activity"></section>
+        <ActivitySection userId={id} />
         <section className="average"></section>
         <section className="performance"></section>
         <section className="score"></section>
