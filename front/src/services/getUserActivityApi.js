@@ -7,7 +7,7 @@ async function getUserActivityApi(id) {
       : await fetch(`${URL_API}/user/${id}/activity`).then((response) =>
           response.json()
         )
-  ).sessions;
+  )?.sessions;
   // POST TRAITMENT
   return result;
 }
