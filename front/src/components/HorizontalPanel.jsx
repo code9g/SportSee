@@ -12,7 +12,7 @@ function HorizontalPanel() {
   return (
     <header className="horizontal-panel">
       <Link className="brand" to="/">
-        <img className="logo" src={logo} alt="" />
+        <img className="logo" src={logo} alt="Logo de SportSee" />
       </Link>
       <nav className="horizontal-menu">
         <ul className="nav-menu">

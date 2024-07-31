@@ -24,11 +24,15 @@ function Profil({ id }) {
     return <>En chargement</>;
   }
 
-  if (user) {
-    return <div>{user && user.userInfos.firstName}</div>;
+  if (!user) {
+    return <>Pas de donnée utilisateur</>;
   }
 
-  return <>Pas de donnée utilisateur</>;
+  return (
+    <>
+      <div>{user && user.userInfos.firstName}</div>
+    </>
+  );
 }
 
 Profil.propTypes = {
