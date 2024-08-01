@@ -41,7 +41,7 @@ function Profil({ id }) {
         <div className="info">
           <h2 className="title">
             Bonjour{" "}
-            <span className="primary-color">{user.userInfos.firstName}</span>
+            <span className="first-name">{user.userInfos.firstName}</span>
           </h2>
           <p className="message">
             Félicitation ! Vous avez explosé vos objectifs hier 👏

@@ -50,10 +50,6 @@ body {
   height: 100%;
 }
 
-.primary-color {
-  color: var(--primary-color);
-}
-
 .header {
   grid-area: header;
 
@@ -136,6 +132,10 @@ body {
   .title {
     font-size: 4.8rem;
     margin-bottom: 4rem;
+  }
+
+  .first-name {
+    color: var(--primary-color);
   }
 }
 
