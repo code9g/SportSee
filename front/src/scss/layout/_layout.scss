@@ -1,0 +1,9 @@
+.main-content {
+  grid-area: main-content;
+
+  .container {
+    max-width: 1128px;
+    margin: auto;
+    padding: 1rem;
+  }
+}

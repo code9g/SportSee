@@ -1,0 +1,19 @@
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+}
