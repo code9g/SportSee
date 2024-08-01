@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-full.svg";
 
-const horizontalLinks = [
+const headerLinks = [
   { title: "Accueil", to: "/home" },
   { title: "Profil", to: "/profil" },
   { title: "Réglage", to: "/setting" },
   { title: "Communauté", to: "/forum" },
 ];
 
-function HorizontalPanel() {
+function Header() {
   return (
-    <header className="horizontal-panel">
+    <header className="header">
       <Link className="brand" to="/">
         <img className="logo" src={logo} alt="Logo de SportSee" />
       </Link>
-      <nav className="horizontal-menu">
+      <nav className="nav-bar">
         <ul className="nav-menu">
-          {horizontalLinks.map(({ title, to }, index) => (
+          {headerLinks.map(({ title, to }, index) => (
             <li key={index} className="nav-item">
               <Link className="nav-link" to={to}>
                 {title}
@@ -29,4 +29,4 @@ function HorizontalPanel() {
   );
 }
 
-export default HorizontalPanel;
+export default Header;

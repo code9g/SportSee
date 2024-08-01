@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import HorizontalPanel from "../components/HorizontalPanel";
+import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 
 function Layout() {
   return (
     <>
-      <HorizontalPanel />
+      <Header />
       <SideBar />
       <main className="main-content">
         <Outlet />
