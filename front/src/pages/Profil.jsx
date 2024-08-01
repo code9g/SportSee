@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import ActivitySection from "../components/ActivitySection";
 import AverageSection from "../components/AverageSection";
+import KeyMetricsSection from "../components/KeyMetricsSection";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
 import getUserAllApi from "../services/getUserAllApi";
@@ -48,8 +49,7 @@ function Profil({ id }) {
         <AverageSection userId={id} />
         <PerformanceSection userId={id} />
         <ScoreSection userId={id} />
-
-        <section className="key"></section>
+        <KeyMetricsSection userId={id} />
       </div>
     </>
   );
