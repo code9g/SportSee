@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import useFetch from "../hooks/useFetch";
 import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
+import { kinds } from "../utils/consts";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
@@ -36,7 +37,9 @@ function PerformanceSection({ user }) {
     return <NoData />;
   }
 
-  const data = [...performance.data].reverse();
+  const data = performance.data
+    .map((item) => ({ value: item.value, kind: kinds[item.kind] ?? "???" }))
+    .reverse();
 
   return (
     <section className="performance">

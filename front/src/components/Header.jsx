@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-full.svg";
-import headerLinks from "../consts/headerLinks";
 
 /**
  * Composant pour afficher l'en-tête du dashboard
@@ -8,6 +7,13 @@ import headerLinks from "../consts/headerLinks";
  * @returns {JSX.Element} - Un élément JSX contenant l'en-tête
  */
 function Header() {
+  const headerLinks = [
+    { title: "Accueil", to: "/home" },
+    { title: "Profil", to: "/profil" },
+    { title: "Réglage", to: "/setting" },
+    { title: "Communauté", to: "/forum" },
+  ];
+
   return (
     <header className="header">
       <Link className="brand" to="/">

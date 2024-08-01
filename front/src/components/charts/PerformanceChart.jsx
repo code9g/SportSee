@@ -8,7 +8,6 @@ import {
   ResponsiveContainer,
   Text,
 } from "recharts";
-import kinds from "../../consts/kinds";
 
 /**
  * Composant pour afficher les performances de l'utilisateur sous forme de graphique radar.
@@ -60,7 +59,7 @@ function CustomTick({ payload, x, y, cx, cy, ...rest }) {
       fontSize="1.2rem"
       fontWeight={500}
     >
-      {kinds[payload.value] ?? "???"}
+      {payload.value}
     </Text>
   );
 }

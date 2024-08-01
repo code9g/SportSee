@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import keys from "../consts/keys";
+import { keys } from "../utils/consts";
 import KeyMetric from "./KeyMetric";
 import NoData from "./NoData";
 

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import dayOfWeek from "../consts/dayOfWeek";
 import useFetch from "../hooks/useFetch";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
+import { dayOfWeek } from "../utils/consts";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";

@@ -1,4 +1,4 @@
-const URL_API = "http://localhost:3000";
+import { URL_API } from "../utils/consts";
 
 /**
  * Fonction API générique permettant de récuperer des données

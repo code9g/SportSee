@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import activityUnits from "../../consts/activityUnits";
+import { activityUnits } from "../../utils/consts";
 
 /**
  * Composant pour afficher l'activité quotidienne de l'utilisateur sous forme de graphique à barres.
