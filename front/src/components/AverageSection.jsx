@@ -39,7 +39,7 @@ function AverageSection({ user }) {
   }
 
   const data = average.map((item) => ({
-    day: dayOfWeek[item.day - 1].short,
+    day: dayOfWeek[item.day],
     sessionLength: item.sessionLength,
   }));
 

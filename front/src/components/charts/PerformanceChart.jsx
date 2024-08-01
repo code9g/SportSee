@@ -13,8 +13,7 @@ import kinds from "../../consts/kinds";
 /**
  * Composant pour afficher les performances de l'utilisateur sous forme de graphique radar.
  *
- * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
- * un graphique radar.
+ * Ce composant affiche les données de performance en utilisant un graphique radar.
  *
  * @param {Object} props - Les propriétés du composant.
  * @param {Array<Objet>} props.data - Les données de performance à afficher.

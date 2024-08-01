@@ -12,9 +12,9 @@ import {
 /**
  * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.
  *
- * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
- * un graphique linéaire. La ligne représente la durée des sessions, avec des détails supplémentaires affichés
- * dans un tooltip personnalisé lors du survol de la ligne.
+ * Ce composant affiche les données de session en utilisant un graphique linéaire. La ligne représente
+ * la durée des sessions, avec des détails supplémentaires affichés dans un tooltip personnalisé lors
+ *  du survol de la ligne.
  *
  * @param {Object} props - Les propriétés du composant.
  * @param {Array} props.data - Les données à afficher

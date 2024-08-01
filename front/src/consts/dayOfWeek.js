@@ -1,11 +1,3 @@
-const dayOfWeek = [
-  { short: "L", text: "Lundi" },
-  { short: "M", text: "Mardi" },
-  { short: "M", text: "Mercredi" },
-  { short: "J", text: "Jeudi" },
-  { short: "V", text: "Vendredi" },
-  { short: "S", text: "Samedi" },
-  { short: "D", text: "Dimanche" },
-];
+const dayOfWeek = { 1: "L", 2: "M", 3: "M", 4: "J", 5: "V", 6: "S", 7: "D" };
 
 export default dayOfWeek;
