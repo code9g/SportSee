@@ -1,6 +1,16 @@
 import fetchApi from "./fetchApi";
 
-const fetchUserActivityApi = async (id) =>
-  fetchApi(id, "/activity").then((activity) => activity.sessions);
+/**
+ * Fonction API permettant de récuperer des données de l'activité d'un utilisateur
+ *
+ * Cette fonction permet de récupérer les données de l'activité d'un utilisateur
+ *  en fonction de son identifiant.
+ *
+ * @param {Number} userId - Identifiant de l'utilisateur
+ *
+ * @returns {Promesse} - Retourne une promesse
+ */
+const fetchUserActivityApi = async (userId) =>
+  fetchApi(userId, "/activity").then((activity) => activity.sessions);
 
 export default fetchUserActivityApi;

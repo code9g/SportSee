@@ -1,7 +1,16 @@
 import fetchApi from "./fetchApi";
 
-async function fetchUserApi(id) {
-  return fetchApi(id);
-}
+/**
+ * Fonction API permettant de récuperer des données d'un utilisateur
+ *
+ * Cette fonction permet de récupérer les données d'un utilisateur
+ * en fonction de son identifiant.
+ * Note: C'est un alias de fetchApi !
+ *
+ * @param {Number} id - Identifiant de l'utilisateur
+ *
+ * @returns {Promesse} - Retourne une promesse
+ */
+const fetchUserApi = async (id) => fetchApi(id);
 
 export default fetchUserApi;
