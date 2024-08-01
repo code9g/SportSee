@@ -13,8 +13,8 @@ const sideBarLinks = [
 
 function SideBar() {
   return (
-    <aside className="vertical-panel">
-      <div className="vertical-content">
+    <aside className="sidebar">
+      <div className="content">
         <ul className="nav-menu">
           {sideBarLinks.map(({ icon, alt, to }, index) => (
             <li key={index}>

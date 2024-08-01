@@ -45,7 +45,7 @@ body {
   grid-template-rows: min-content 1fr;
   grid-template-areas:
     "horizontal-panel horizontal-panel"
-    "vertical-panel main-content";
+    "sidebar main-content";
 
   height: 100%;
 }
@@ -101,8 +101,9 @@ body {
   display: block;
 }
 
-.vertical-panel {
-  grid-area: vertical-panel;
+.sidebar {
+  grid-area: sidebar;
+
   display: flex;
   flex-direction: column;
 
@@ -118,14 +119,14 @@ body {
 
     width: 6.4rem;
   }
-}
 
-.vertical-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }
 
 .info {
