@@ -11,7 +11,7 @@ import NoData from "./NoData";
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
 function ScoreSection({ user }) {
-  if (user.todayScore === undefined || user.score === undefined) {
+  if (user.todayScore === undefined && user.score === undefined) {
     return <NoData />;
   }
 
