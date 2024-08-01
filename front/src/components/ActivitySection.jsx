@@ -63,7 +63,7 @@ function ActivitySection({ userId }) {
   }
   return (
     <section className="activity">
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barGap={12} barSize={8}>
           <text
             x={0}

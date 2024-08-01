@@ -145,11 +145,47 @@ h2 {
 
 .main-content {
   grid-area: main-content;
+
+  .container {
+    max-width: 1128px;
+    margin: auto;
+  }
+
+  .chart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 258px;
+    grid-template-rows: 1fr 258px;
+    grid-template-areas: "activity activity activity metrics" "average performance score metrics";
+    justify-items: center;
+    align-items: center;
+    row-gap: 2.8rem;
+    column-gap: 3.1rem;
+  }
+}
+
+.average,
+.performance,
+.score {
+  height: 100%;
+  aspect-ratio: 1/1;
 }
 
 .activity {
+  width: 100% !important;
+}
+.average {
+  justify-self: flex-start;
+}
+
+.score {
+  justify-self: flex-end;
+}
+
+.activity {
+  grid-area: activity;
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 2.4rem;
   border-radius: 0.5rem;
   background: #fbfbfb;
@@ -165,6 +201,7 @@ h2 {
 }
 
 .average {
+  grid-area: average;
   position: relative;
 
   border-radius: 0.5rem;
@@ -211,12 +248,13 @@ h2 {
 }
 
 .performance {
+  grid-area: performance;
+
   border-radius: 5px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
   width: 258px;
   height: 258px;
 
-  margin-top: 12px;
   background: #282d30;
 }
 
@@ -259,10 +297,12 @@ h2 {
 }
 
 .metrics {
+  grid-area: metrics;
   display: flex;
   flex-direction: column;
-  gap: 3.9rem;
+  justify-content: space-between;
   width: 258px;
+  height: 100%;
 
   .icon {
     width: 64px;

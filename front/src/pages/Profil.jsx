@@ -38,18 +38,22 @@ function Profil({ id }) {
   return (
     <>
       <div className="container">
-        <h2 className="title-name">
-          Bonjour{" "}
-          <span className="primary-color">{user.userInfos.firstName}</span>
-        </h2>
-        <p className="info">
-          Félicitation ! Vous avez explosé vos objectifs hier 👏
-        </p>
-        <ActivitySection userId={id} />
-        <AverageSection userId={id} />
-        <PerformanceSection userId={id} />
-        <ScoreSection userId={id} />
-        <KeyMetricsSection userId={id} />
+        <div className="info">
+          <h2 className="title-name">
+            Bonjour{" "}
+            <span className="primary-color">{user.userInfos.firstName}</span>
+          </h2>
+          <p className="info">
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          </p>
+        </div>
+        <div className="chart">
+          <ActivitySection userId={id} />
+          <AverageSection userId={id} />
+          <PerformanceSection userId={id} />
+          <ScoreSection userId={id} />
+          <KeyMetricsSection userId={id} />
+        </div>
       </div>
     </>
   );
