@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import ActivityTooltip from "./ActivityTooltip";
 
 import {
@@ -12,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import useFetch from "../hooks/useFetch";
 import fetchUserActivityApi from "../services/fetchUserActivityApi";
 import Error from "./Error";
 import Loading from "./Loading";
@@ -30,31 +30,11 @@ import NoData from "./NoData";
  * @returns {JSX.Element} - Un élément JSX contenant le graphique à barres et les icônes associées.
  */
 function ActivitySection({ user }) {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    fetchUserActivityApi(user.id ? user.id : null)
-      .then((activity) => {
-        console.log("Activity data:", activity);
-        setData(
-          activity.map((item, index) => ({
-            ...item,
-            num: index + 1,
-          }))
-        );
-      })
-      .catch((e) => {
-        setError("Failed to fetch activity data");
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [user]);
+  const {
+    isLoading,
+    error,
+    data: activity,
+  } = useFetch(user.id, fetchUserActivityApi, "activity", []);
 
   if (isLoading) {
     return <Loading />;
@@ -64,9 +44,11 @@ function ActivitySection({ user }) {
     return <Error message={error} />;
   }
 
-  if (!data) {
+  if (!activity) {
     return <NoData />;
   }
+
+  const data = activity.map((item, index) => ({ ...item, num: index + 1 }));
 
   return (
     <section className="activity">

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo-full.svg";
-import headerLinks from "../utils/headerLinks";
+import headerLinks from "../consts/headerLinks";
 
 /**
  * Composant pour afficher l'en-tête du dashboard

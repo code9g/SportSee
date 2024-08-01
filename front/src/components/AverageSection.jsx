@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import {
   Line,
   LineChart,
@@ -9,6 +8,7 @@ import {
   YAxis,
 } from "recharts";
 import dayOfWeek from "../consts/dayOfWeek";
+import useFetch from "../hooks/useFetch";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
 import AverageTooltip from "./AverageTooltip";
 import Error from "./Error";
@@ -28,31 +28,11 @@ import NoData from "./NoData";
  * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageSection({ user }) {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    fetchUserAverageSessionsApi(user.id)
-      .then((average) => {
-        console.log("Average-sessions data:", average);
-        setData(
-          average.map((item, index) => ({
-            ...item,
-            num: index + 1,
-          }))
-        );
-      })
-      .catch((e) => {
-        setError("Failed to fetch average-sessions data");
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [user]);
+  const {
+    isLoading,
+    error,
+    data: average,
+  } = useFetch(user.id, fetchUserAverageSessionsApi, "average-sessions", []);
 
   if (isLoading) {
     return <Loading />;
@@ -62,9 +42,14 @@ function AverageSection({ user }) {
     return <Error message={error} />;
   }
 
-  if (!data || data.length === 0) {
+  if (!average || average.length === 0) {
     return <NoData />;
   }
+
+  const data = average.map((item, index) => ({
+    ...item,
+    num: index + 1,
+  }));
 
   return (
     <section className="average">

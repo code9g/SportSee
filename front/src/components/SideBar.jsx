@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import sideBarLinks from "../utils/sideBarLinks";
+import sideBarLinks from "../consts/sideBarLinks";
 
 /**
  * Composant pour afficher la barre latérale (features).

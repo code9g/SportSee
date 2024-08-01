@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import ActivitySection from "../components/ActivitySection";
 import AverageSection from "../components/AverageSection";
 import Error from "../components/Error";
@@ -8,6 +7,7 @@ import Loading from "../components/Loading";
 import NoData from "../components/NoData";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
+import useFetch from "../hooks/useFetch";
 import fetchUserApi from "../services/fetchUserApi";
 
 /**
@@ -21,26 +21,11 @@ import fetchUserApi from "../services/fetchUserApi";
  * @returns {JSX.Element} - Un élément JSX contenant la page de profil.
  */
 function Profil({ id }) {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    fetchUserApi(id)
-      .then((user) => {
-        setUser(user);
-        console.log("User data:", user);
-      })
-      .catch((e) => {
-        setError("Failed to fetch user data");
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [id]);
+  const {
+    isLoading,
+    error,
+    data: user,
+  } = useFetch(id, fetchUserApi, "user", null);
 
   if (isLoading) {
     return <Loading />;

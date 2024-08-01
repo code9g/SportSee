@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -8,6 +7,7 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
+import useFetch from "../hooks/useFetch";
 import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
 import Error from "./Error";
 import Loading from "./Loading";
@@ -26,33 +26,11 @@ import PerformanceTick from "./PerformanceTick";
  * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
  */
 function PerformanceSection({ user }) {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    fetchUserPerformanceApi(user.id)
-      .then((performance) => {
-        console.log("Performance data:", performance);
-        setData(
-          performance.data
-            .map((item) => ({
-              value: item.value,
-              kind: item.kind,
-            }))
-            .reverse()
-        );
-      })
-      .catch((e) => {
-        setError("Failed to fetch performance data");
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [user]);
+  const {
+    isLoading,
+    error,
+    data: performance,
+  } = useFetch(user.id, fetchUserPerformanceApi, "performance", []);
 
   if (isLoading) {
     return <Loading />;
@@ -62,9 +40,16 @@ function PerformanceSection({ user }) {
     return <Error message={error} />;
   }
 
-  if (!data || data.length === 0) {
+  if (!performance || performance.length === 0) {
     return <NoData />;
   }
+
+  const data = performance.data
+    .map((item) => ({
+      value: item.value,
+      kind: item.kind,
+    }))
+    .reverse();
 
   return (
     <section className="performance">
