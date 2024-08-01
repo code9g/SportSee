@@ -8,8 +8,8 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import dayOfWeek from "../consts/dayOfWeek";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
-import dayOfWeek from "../utils/dayOfWeek";
 import AverageTooltip from "./AverageTooltip";
 import Error from "./Error";
 import Loading from "./Loading";

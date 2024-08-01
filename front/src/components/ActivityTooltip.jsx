@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import activityUnits from "../utils/activityUnits";
+import activityUnits from "../consts/activityUnits";
 
 /**
  * Composant de tooltip personnalisé pour afficher des informations sur une activité.

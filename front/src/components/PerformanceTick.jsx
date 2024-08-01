@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Text } from "recharts";
-import kinds from "../utils/kinds";
+import kinds from "../consts/kinds";
 
 /**
  * Composant de tick personnalisé pour afficher des informations sur le type.
