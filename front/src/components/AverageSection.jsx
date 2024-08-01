@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import dayOfWeek from "../consts/dayOfWeek";
 import useFetch from "../hooks/useFetch";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
-import AverageChart from "./AverageChart";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
+import AverageChart from "./charts/AverageChart";
 
 /**
  * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.

@@ -1,18 +1,10 @@
 import PropTypes from "prop-types";
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-} from "recharts";
 import useFetch from "../hooks/useFetch";
 import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
-import PerformanceTick from "./PerformanceTick";
+import PerformanceChart from "./charts/PerformanceChart";
 
 /**
  * Composant pour afficher les performances de l'utilisateur sous forme de graphique radar.
@@ -48,18 +40,7 @@ function PerformanceSection({ user }) {
 
   return (
     <section className="performance">
-      <ResponsiveContainer width="100%" height={260}>
-        <RadarChart outerRadius="70%" data={data}>
-          <PolarGrid radialLines={false} stroke="#ffffff" />
-          <PolarAngleAxis
-            dataKey="kind"
-            tickLine={false}
-            tick={PerformanceTick}
-          />
-          <PolarRadiusAxis axisLine={false} tick={false} tickLine={false} />
-          <Radar dataKey="value" stroke="none" fill="rgba(255, 1, 1, 0.70)" />
-        </RadarChart>
-      </ResponsiveContainer>
+      <PerformanceChart data={data} />
     </section>
   );
 }
