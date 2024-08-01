@@ -214,8 +214,46 @@ h2 {
   border-radius: 5px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
   width: 258px;
-  height: 263px;
+  height: 258px;
 
   margin-top: 12px;
   background: #282d30;
+}
+
+.score {
+  position: relative;
+
+  width: 258px;
+  height: 258px;
+  padding: 2rem;
+
+  border-radius: 0.5rem;
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+
+  .title {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: #20253a;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .label {
+    position: absolute;
+    color: #9b9eac;
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+  }
+
+  .percent {
+    color: #282d30;
+    font-size: 2.6rem;
+    font-weight: 700;
+  }
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ActivitySection from "../components/ActivitySection";
 import AverageSection from "../components/AverageSection";
 import PerformanceSection from "../components/PerformanceSection";
+import ScoreSection from "../components/ScoreSection";
 import getUserAllApi from "../services/getUserAllApi";
 
 function Profil({ id }) {
@@ -46,7 +47,8 @@ function Profil({ id }) {
         <ActivitySection userId={id} />
         <AverageSection userId={id} />
         <PerformanceSection userId={id} />
-        <section className="score"></section>
+        <ScoreSection userId={id} />
+
         <section className="key"></section>
       </div>
     </>
