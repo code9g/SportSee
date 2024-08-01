@@ -4,19 +4,19 @@ import swimmingIcon from "../assets/swimming.svg";
 import weightLiftingIcon from "../assets/weightlifting.svg";
 import zenIcon from "../assets/zen.svg";
 
-const verticalLinks = [
-  { icon: zenIcon, alt: "", to: "/profil" },
-  { icon: swimmingIcon, alt: "", to: "/profil" },
-  { icon: bikeIcon, alt: "", to: "/profil" },
-  { icon: weightLiftingIcon, alt: "", to: "/profil" },
+const sideBarLinks = [
+  { icon: zenIcon, alt: "", to: "#zen" },
+  { icon: swimmingIcon, alt: "", to: "#swimming" },
+  { icon: bikeIcon, alt: "", to: "#bike" },
+  { icon: weightLiftingIcon, alt: "", to: "#weight" },
 ];
 
-function VerticalPanel() {
+function SideBar() {
   return (
     <aside className="vertical-panel">
       <div className="vertical-content">
         <ul className="nav-menu">
-          {verticalLinks.map(({ icon, alt, to }, index) => (
+          {sideBarLinks.map(({ icon, alt, to }, index) => (
             <li key={index}>
               <Link className="nav-link" to={to}>
                 <img className="icon" src={icon} alt={alt} />
@@ -30,4 +30,4 @@ function VerticalPanel() {
   );
 }
 
-export default VerticalPanel;
+export default SideBar;

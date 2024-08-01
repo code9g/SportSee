@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 import HorizontalPanel from "../components/HorizontalPanel";
-import VerticalPanel from "../components/VerticalPanel";
+import SideBar from "../components/SideBar";
 
 function Layout() {
   return (
     <>
       <HorizontalPanel />
-      <VerticalPanel />
+      <SideBar />
       <main className="main-content">
         <Outlet />
       </main>
