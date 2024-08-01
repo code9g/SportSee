@@ -8,7 +8,7 @@ import Loading from "../components/Loading";
 import NoData from "../components/NoData";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
-import getUserApi from "../services/getUserApi";
+import fetchUserApi from "../services/fetchUserApi";
 
 /**
  * Composant pour afficher la page de profil d'un utilisateur.
@@ -28,7 +28,7 @@ function Profil({ id }) {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    getUserApi(id)
+    fetchUserApi(id)
       .then((user) => {
         setUser(user);
         console.log("User data:", user);

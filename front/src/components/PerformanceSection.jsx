@@ -8,7 +8,7 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import getUserPerformanceApi from "../services/getUserPerformanceApi";
+import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
@@ -33,9 +33,9 @@ function PerformanceSection({ user }) {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    getUserPerformanceApi(user.id)
+    fetchUserPerformanceApi(user.id)
       .then((performance) => {
-        console.log("Performance data:", performance.data);
+        console.log("Performance data:", performance);
         setData(
           performance.data
             .map((item) => ({

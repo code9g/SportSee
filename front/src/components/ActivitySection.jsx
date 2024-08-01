@@ -12,7 +12,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import getUserActivityApi from "../services/getUserActivityApi";
+import fetchUserActivityApi from "../services/fetchUserActivityApi";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
@@ -37,7 +37,7 @@ function ActivitySection({ user }) {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    getUserActivityApi(user.id ? user.id : null)
+    fetchUserActivityApi(user.id ? user.id : null)
       .then((activity) => {
         console.log("Activity data:", activity);
         setData(

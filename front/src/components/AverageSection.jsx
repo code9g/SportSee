@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import getUserAverageSessionsApi from "../services/getUserAverageSessionsApi";
+import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
 import dayOfWeek from "../utils/dayOfWeek";
 import AverageTooltip from "./AverageTooltip";
 import Error from "./Error";
@@ -35,7 +35,7 @@ function AverageSection({ user }) {
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-    getUserAverageSessionsApi(user.id)
+    fetchUserAverageSessionsApi(user.id)
       .then((average) => {
         console.log("Average-sessions data:", average);
         setData(
