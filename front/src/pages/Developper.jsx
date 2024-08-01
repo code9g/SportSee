@@ -4,8 +4,7 @@ import Profil from "./Profil";
 
 function Developper() {
   const { id } = useParams();
-
-  return /$\d+^/.test(id) ? (
+  return /^\d+$/.test(id) ? (
     <Profil id={parseInt(id, 10)} />
   ) : (
     <Error message="Identifiant d'utilisateur non valide" />
