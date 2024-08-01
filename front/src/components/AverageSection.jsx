@@ -1,16 +1,8 @@
 import PropTypes from "prop-types";
-import {
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import dayOfWeek from "../consts/dayOfWeek";
 import useFetch from "../hooks/useFetch";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
-import AverageTooltip from "./AverageTooltip";
+import AverageChart from "./AverageChart";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
@@ -46,78 +38,17 @@ function AverageSection({ user }) {
     return <NoData />;
   }
 
-  const data = average.map((item, index) => ({
-    ...item,
-    num: index + 1,
+  const data = average.map((item) => ({
+    day: dayOfWeek[item.day - 1].short,
+    sessionLength: item.sessionLength,
   }));
 
   return (
     <section className="average">
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          data={data}
-          margin={{ top: 20, right: 10, left: 10, bottom: 20 }}
-        >
-          <defs>
-            <linearGradient id="line-gradient">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="30%" />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="100%" />
-            </linearGradient>
-          </defs>
-          <text
-            x={10}
-            y={30}
-            textAnchor="left"
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: 500,
-              fill: "#ffffff",
-              fillOpacity: "0.5",
-            }}
-          >
-            Durée moyenne des sessions
-          </text>
-          <XAxis
-            dataKey="day"
-            axisLine={false}
-            tickLine={false}
-            tick={{ fill: "#ffffff", fillOpacity: "50%" }}
-            stroke="#ffffff"
-            tickMargin={10}
-            tickFormatter={(day) => dayOfWeek[day - 1].short}
-          />
-          <YAxis
-            dataKey="sessionLength"
-            hide={true}
-            domain={["dataMin - 10", "dataMax + 20"]}
-          />
-          <Line
-            dataKey="sessionLength"
-            type="natural"
-            stroke="url(#line-gradient)"
-            strokeWidth={2.5}
-            dot={false}
-            activeDot={{
-              stroke: "#FFFFFF",
-              strokeOpacity: "50%",
-              strokeWidth: 10,
-            }}
-          />
-          <Tooltip
-            content={AverageTooltip}
-            cursor={{
-              stroke: "#000000",
-              strokeOpacity: "10%",
-              strokeWidth: "20%",
-              height: "100%",
-            }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <AverageChart data={data} />
     </section>
   );
 }
-
 AverageSection.propTypes = {
   user: PropTypes.object.isRequired,
 };
