@@ -5,7 +5,7 @@ import AverageSection from "../components/AverageSection";
 import KeyMetricsSection from "../components/KeyMetricsSection";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
-import getUserAllApi from "../services/getUserAllApi";
+import getUserApi from "../services/getUserApi";
 
 function Profil({ id }) {
   const [user, setUser] = useState(null);
@@ -14,9 +14,9 @@ function Profil({ id }) {
   useEffect(() => {
     const fetchingAll = async () => {
       try {
-        const user = await getUserAllApi(id);
+        const user = await getUserApi(id);
         setUser(user);
-        console.log(user);
+        console.log("User data:", user);
       } catch (e) {
         console.error(e);
       }

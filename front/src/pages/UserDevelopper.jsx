@@ -71,23 +71,67 @@ function UserDevelopper() {
             </span>
           </h2>
         </div>
-        <div>{user.score !== undefined && <p>score: {user.score}</p>}</div>
         <div>
-          {user.todayScore !== undefined && (
-            <p>todayScore: {user.todayScore}</p>
-          )}
-          <table style={{ width: "100%", border: "1px solid green" }}>
+          <table
+            style={{
+              width: "100%",
+              border: "1px solid green",
+              marginBottom: "2rem",
+            }}
+          >
             <thead>
               <tr>
                 <th>key</th>
                 <th>value</th>
-                <th>unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>todayScore</td>
+                <td>{user.todayScore}</td>
+              </tr>
+              <tr>
+                <td>score</td>
+                <td>{user.score}</td>
+              </tr>
+              <tr>
+                <td>firstName</td>
+                <td>{user.userInfos.firstName}</td>
+              </tr>
+              <tr>
+                <td>lastName</td>
+                <td>{user.userInfos.lastName}</td>
+              </tr>
+              <tr>
+                <td>age</td>
+                <td>{user.userInfos.age}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            style={{
+              width: "100%",
+              border: "1px solid green",
+              marginBottom: "2rem",
+            }}
+          >
+            <thead>
+              <tr>
+                <th scope="col">key</th>
+                <th scope="col">icon</th>
+                <th scope="col">label</th>
+                <th scope="col">value</th>
+                <th scope="col">unit</th>
               </tr>
             </thead>
             <tbody>
               {categories.map((category, index) => (
                 <tr key={index}>
                   <th scope="row">{category.key}</th>
+                  <td>
+                    <img src={category.icon} alt="" />
+                  </td>
+                  <td>{category.label}</td>
                   <td>{user.keyData[category.key]}</td>
                   <td>{category.unit}</td>
                 </tr>
