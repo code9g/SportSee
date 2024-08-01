@@ -1,14 +1,6 @@
 import PropTypes from "prop-types";
 import { Text } from "recharts";
-
-const kinds = {
-  1: "Cardio",
-  2: "Energie",
-  3: "Endurance",
-  4: "Force",
-  5: "Vitesse",
-  6: "Intensité",
-};
+import kinds from "../utils/kinds";
 
 /**
  * Composant de tick personnalisé pour afficher des informations sur le type.
@@ -21,6 +13,7 @@ const kinds = {
  * @param {Number} props.y - La coordonnée en y du text
  * @param {Number} props.cx - Le centre du graphique en x
  * @param {Number} props.cy - Le centre du graphique en y
+ *
  * @returns {JSX.Element} - Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
  */
 function PerformanceTick({ payload, x, y, cx, cy, ...rest }) {

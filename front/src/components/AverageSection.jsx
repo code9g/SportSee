@@ -9,12 +9,11 @@ import {
   YAxis,
 } from "recharts";
 import getUserAverageSessionsApi from "../services/getUserAverageSessionsApi";
+import dayOfWeek from "../utils/dayOfWeek";
 import AverageTooltip from "./AverageTooltip";
 import Error from "./Error";
 import Loading from "./Loading";
 import NoData from "./NoData";
-
-const days = ["L", "M", "M", "J", "V", "S", "D"];
 
 /**
  * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.
@@ -25,6 +24,7 @@ const days = ["L", "M", "M", "J", "V", "S", "D"];
  *
  * @param {Object} props - Les propriétés du composant.
  * @param {number} props.user - L'utilisateur pour lequel les données de session sont récupérées.
+ *
  * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageSection({ user }) {
@@ -99,7 +99,7 @@ function AverageSection({ user }) {
             tick={{ fill: "#ffffff", fillOpacity: "50%" }}
             stroke="#ffffff"
             tickMargin={10}
-            tickFormatter={(day) => days[day - 1]}
+            tickFormatter={(day) => dayOfWeek[day - 1].short}
           />
           <YAxis
             dataKey="sessionLength"

@@ -22,6 +22,7 @@ import PerformanceTick from "./PerformanceTick";
  *
  * @param {Object} props - Les propriétés du composant.
  * @param {number} props.user - L'utilisateur pour lequel les données de performance sont récupérées.
+ *
  * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
  */
 function PerformanceSection({ user }) {

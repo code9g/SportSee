@@ -25,7 +25,8 @@ import NoData from "./NoData";
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
  *
  * @param {Object} props - Les propriétés du composant.
- * @param {number} props.user - L'utilisateur pour les données d'activité sont récupérées.
+ * @param {Number} props.user - L'utilisateur pour les données d'activité sont récupérées.
+ *
  * @returns {JSX.Element} - Un élément JSX contenant le graphique à barres et les icônes associées.
  */
 function ActivitySection({ user }) {

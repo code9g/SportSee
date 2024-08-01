@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
-import bikeIcon from "../assets/icons/bike.svg";
-import swimmingIcon from "../assets/icons/swimming.svg";
-import weightLiftingIcon from "../assets/icons/weightlifting.svg";
-import zenIcon from "../assets/icons/zen.svg";
+import sideBarLinks from "../utils/sideBarLinks";
 
-const sideBarLinks = [
-  { icon: zenIcon, alt: "", to: "#zen" },
-  { icon: swimmingIcon, alt: "", to: "#swimming" },
-  { icon: bikeIcon, alt: "", to: "#bike" },
-  { icon: weightLiftingIcon, alt: "", to: "#weight" },
-];
-
+/**
+ * Composant pour afficher la barre latérale (features).
+ *
+ * @returns {JSX.Element} Le composant affichant la barre latérale.
+ */
 function SideBar() {
   return (
     <aside className="sidebar">

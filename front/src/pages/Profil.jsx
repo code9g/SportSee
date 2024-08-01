@@ -10,6 +10,16 @@ import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
 import getUserApi from "../services/getUserApi";
 
+/**
+ * Composant pour afficher la page de profil d'un utilisateur.
+ *
+ * Ce composant récupère les données d'un utilisateur spécifique et affiche les informations et les graphiques.
+ *
+ * @param {Object} props - Les propriétés du composant.
+ * @param {number} props.id - Id de l'utilisateur.
+ *
+ * @returns {JSX.Element} - Un élément JSX contenant la page de profil.
+ */
 function Profil({ id }) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);

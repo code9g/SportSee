@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
  * @param {Number} props.value - La valeur de la métrique
  * @param {Any} props.icon - L'icône de la métrique
  * @param {String} props.unit - L'unité de la métrique
+ *
  * @returns {JSX.Element} - Un élément JSX contenant la métrique.
  */
 export default function KeyMetric({ label, value, icon, unit }) {

@@ -1,3 +1,8 @@
+/**
+ * Composant pour afficher une page qui n'a pas été trouvé.
+ *
+ * @returns {JSX.Element}
+ */
 function NotFound() {
   return (
     <div
