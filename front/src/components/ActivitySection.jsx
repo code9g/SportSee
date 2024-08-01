@@ -13,6 +13,9 @@ import {
   YAxis,
 } from "recharts";
 import getUserActivityApi from "../services/getUserActivityApi";
+import Error from "./Error";
+import Loading from "./Loading";
+import NoData from "./NoData";
 
 /**
  * Composant pour afficher l'activité quotidienne de l'utilisateur sous forme de graphique à barres.
@@ -22,29 +25,27 @@ import getUserActivityApi from "../services/getUserActivityApi";
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
  *
  * @param {Object} props - Les propriétés du composant.
- * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données d'activité sont récupérées.
+ * @param {number} props.user - L'utilisateur pour les données d'activité sont récupérées.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique à barres et les icônes associées.
  */
-function ActivitySection({ userId }) {
+function ActivitySection({ user }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetching = async () => {
-      const activity = await getUserActivityApi(userId);
-      console.log("Activity data:", activity);
-      setData(
-        activity.map((item, index) => ({
-          ...item,
-          num: index + 1,
-        }))
-      );
-    };
-
     setIsLoading(true);
     setError(null);
-    fetching()
+    getUserActivityApi(user.id ? user.id : null)
+      .then((activity) => {
+        console.log("Activity data:", activity);
+        setData(
+          activity.map((item, index) => ({
+            ...item,
+            num: index + 1,
+          }))
+        );
+      })
       .catch((e) => {
         setError("Failed to fetch activity data");
         console.error(e);
@@ -52,15 +53,20 @@ function ActivitySection({ userId }) {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [userId]);
+  }, [user]);
 
   if (isLoading) {
-    return <div>Chargement des données d&apos;activité</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <Error message={error} />;
   }
+
+  if (!data) {
+    return <NoData />;
+  }
+
   return (
     <section className="activity">
       <ResponsiveContainer width="100%" height="100%">
@@ -144,7 +150,7 @@ function ActivitySection({ userId }) {
 }
 
 ActivitySection.propTypes = {
-  userId: PropTypes.number,
+  user: PropTypes.object.isRequired,
 };
 
 export default ActivitySection;

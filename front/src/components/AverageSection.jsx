@@ -10,6 +10,11 @@ import {
 } from "recharts";
 import getUserAverageSessionsApi from "../services/getUserAverageSessionsApi";
 import AverageTooltip from "./AverageTooltip";
+import Error from "./Error";
+import Loading from "./Loading";
+import NoData from "./NoData";
+
+const days = ["L", "M", "M", "J", "V", "S", "D"];
 
 /**
  * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.
@@ -19,30 +24,27 @@ import AverageTooltip from "./AverageTooltip";
  * dans un tooltip personnalisé lors du survol de la ligne.
  *
  * @param {Object} props - Les propriétés du composant.
- * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données de session sont récupérées.
+ * @param {number} props.user - L'utilisateur pour lequel les données de session sont récupérées.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
  */
-function AverageSection({ userId }) {
+function AverageSection({ user }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetching = async () => {
-      setError(null);
-      const average = await getUserAverageSessionsApi(userId);
-      console.log("Average-sessions data:", average);
-      setData(
-        average.map((item, index) => ({
-          ...item,
-          num: index + 1,
-        }))
-      );
-    };
-
     setIsLoading(true);
     setError(null);
-    fetching()
+    getUserAverageSessionsApi(user.id)
+      .then((average) => {
+        console.log("Average-sessions data:", average);
+        setData(
+          average.map((item, index) => ({
+            ...item,
+            num: index + 1,
+          }))
+        );
+      })
       .catch((e) => {
         setError("Failed to fetch average-sessions data");
         console.error(e);
@@ -50,21 +52,19 @@ function AverageSection({ userId }) {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [userId]);
+  }, [user]);
 
   if (isLoading) {
-    return <div>Chargement des données</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <Error message={error} />;
   }
 
-  if (data.length === 0) {
-    return <div>Aucune donnée disponible</div>;
+  if (!data || data.length === 0) {
+    return <NoData />;
   }
-
-  const days = ["L", "M", "M", "J", "V", "S", "D"];
 
   return (
     <section className="average">
@@ -134,7 +134,7 @@ function AverageSection({ userId }) {
 }
 
 AverageSection.propTypes = {
-  userId: PropTypes.number,
+  user: PropTypes.object.isRequired,
 };
 
 export default AverageSection;

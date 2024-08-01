@@ -9,6 +9,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import getUserPerformanceApi from "../services/getUserPerformanceApi";
+import Error from "./Error";
+import Loading from "./Loading";
+import NoData from "./NoData";
 import PerformanceTick from "./PerformanceTick";
 
 /**
@@ -18,30 +21,29 @@ import PerformanceTick from "./PerformanceTick";
  * un graphique radar.
  *
  * @param {Object} props - Les propriétés du composant.
- * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel les données de performance sont récupérées.
+ * @param {number} props.user - L'utilisateur pour lequel les données de performance sont récupérées.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
  */
-function PerformanceSection({ userId }) {
+function PerformanceSection({ user }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetching = async () => {
-      const performance = await getUserPerformanceApi(userId);
-      console.log("Performance data:", performance.data);
-
-      setData(
-        performance.data
-          .map((item) => ({
-            value: item.value,
-            kind: item.kind,
-          }))
-          .reverse()
-      );
-    };
-
-    fetching()
+    setIsLoading(true);
+    setError(null);
+    getUserPerformanceApi(user.id)
+      .then((performance) => {
+        console.log("Performance data:", performance.data);
+        setData(
+          performance.data
+            .map((item) => ({
+              value: item.value,
+              kind: item.kind,
+            }))
+            .reverse()
+        );
+      })
       .catch((e) => {
         setError("Failed to fetch performance data");
         console.error(e);
@@ -49,14 +51,18 @@ function PerformanceSection({ userId }) {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [userId]);
+  }, [user]);
 
   if (isLoading) {
-    return <div>Chargement des données en cours...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <Error message={error} />;
+  }
+
+  if (!data || data.length === 0) {
+    return <NoData />;
   }
 
   return (
@@ -78,7 +84,7 @@ function PerformanceSection({ userId }) {
 }
 
 PerformanceSection.propTypes = {
-  userId: PropTypes.number,
+  user: PropTypes.object.isRequired,
 };
 
 export default PerformanceSection;

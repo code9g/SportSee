@@ -2,37 +2,46 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import ActivitySection from "../components/ActivitySection";
 import AverageSection from "../components/AverageSection";
+import Error from "../components/Error";
 import KeyMetricsSection from "../components/KeyMetricsSection";
+import Loading from "../components/Loading";
+import NoData from "../components/NoData";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
 import getUserApi from "../services/getUserApi";
 
 function Profil({ id }) {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchingAll = async () => {
-      try {
-        const user = await getUserApi(id);
+    setIsLoading(true);
+    setError(null);
+    getUserApi(id)
+      .then((user) => {
         setUser(user);
         console.log("User data:", user);
-      } catch (e) {
+      })
+      .catch((e) => {
+        setError("Failed to fetch user data");
         console.error(e);
-      }
-    };
-    setIsLoading(true);
-    fetchingAll().finally(() => {
-      setIsLoading(false);
-    });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [id]);
 
   if (isLoading) {
-    return <>En chargement</>;
+    return <Loading />;
+  }
+
+  if (error) {
+    return <Error message={error} />;
   }
 
   if (!user) {
-    return <>Pas de donnée utilisateur</>;
+    return <NoData />;
   }
 
   return (
@@ -48,11 +57,11 @@ function Profil({ id }) {
           </p>
         </div>
         <div className="charts">
-          <KeyMetricsSection userId={id} />
-          <ActivitySection userId={id} />
-          <AverageSection userId={id} />
-          <PerformanceSection userId={id} />
-          <ScoreSection userId={id} />
+          <KeyMetricsSection user={user} />
+          <ActivitySection user={user} />
+          <AverageSection user={user} />
+          <PerformanceSection user={user} />
+          <ScoreSection user={user} />
         </div>
       </div>
     </>
@@ -60,7 +69,7 @@ function Profil({ id }) {
 }
 
 Profil.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.number.isRequired,
 };
 
 export default Profil;

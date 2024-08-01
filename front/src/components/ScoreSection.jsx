@@ -1,48 +1,18 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
 import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
-import getUserApi from "../services/getUserApi";
 
 /**
  * Composant pour afficher le score utilisateur sous forme de graphique radial.
  *
  * @param {Object} props - Les propriétés du composant.
- * @param {number} props.userId - L'identifiant de l'utilisateur pour lequel afficher le score.
+ * @param {number} props.score - L'utilisateur pour lequel afficher le score.
  *
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
-function ScoreSection({ userId }) {
-  const [score, setScore] = useState(null);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+function ScoreSection({ user }) {
+  const score = parseFloat(user.todayScore || user.score);
 
-  useEffect(() => {
-    const fetchting = async () => {
-      const user = await getUserApi(userId);
-      setScore(100 * parseFloat(user.todayScore || user.score));
-    };
-
-    setIsLoading(true);
-    setError("");
-    fetchting()
-      .catch((e) => {
-        setError("Failed to fetch user data");
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [userId]);
-
-  if (isLoading) {
-    return <div>Chargement des données en cours...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  const data = [{ name: "Score", value: score / 100 }];
+  const data = [{ name: "Score", value: score }];
 
   return (
     <section className="score">
@@ -71,7 +41,7 @@ function ScoreSection({ userId }) {
         </RadialBarChart>
       </ResponsiveContainer>
       <div className="label">
-        <p className="percent">{score} %</p>
+        <p className="percent">{Math.round(100 * score)} %</p>
         <p>de votre</p>
         <p>objectif</p>
       </div>
@@ -80,7 +50,7 @@ function ScoreSection({ userId }) {
 }
 
 ScoreSection.propTypes = {
-  userId: PropTypes.number,
+  user: PropTypes.object.isRequired,
 };
 
 export default ScoreSection;
