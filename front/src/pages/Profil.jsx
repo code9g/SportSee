@@ -39,20 +39,20 @@ function Profil({ id }) {
     <>
       <div className="container">
         <div className="info">
-          <h2 className="title-name">
+          <h2 className="title">
             Bonjour{" "}
             <span className="primary-color">{user.userInfos.firstName}</span>
           </h2>
-          <p className="info">
+          <p className="message">
             Félicitation ! Vous avez explosé vos objectifs hier 👏
           </p>
         </div>
-        <div className="chart">
+        <div className="charts">
+          <KeyMetricsSection userId={id} />
           <ActivitySection userId={id} />
           <AverageSection userId={id} />
           <PerformanceSection userId={id} />
           <ScoreSection userId={id} />
-          <KeyMetricsSection userId={id} />
         </div>
       </div>
     </>

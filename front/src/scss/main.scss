@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+@mixin shadow {
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+}
+
 *,
 ::after,
 ::before {
@@ -32,10 +37,6 @@ body {
   font-size: 1.6rem;
   color: var(--secondary-color);
   height: 100%;
-}
-
-h2 {
-  font-size: 4.8rem;
 }
 
 #root {
@@ -127,6 +128,16 @@ h2 {
   height: 100%;
 }
 
+.info {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+
+  .title {
+    font-size: 4.8rem;
+    margin-bottom: 4rem;
+  }
+}
+
 .copyright {
   display: flex;
   justify-content: center;
@@ -149,18 +160,21 @@ h2 {
   .container {
     max-width: 1128px;
     margin: auto;
+    padding: 1rem;
   }
+}
 
-  .chart {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) 258px;
-    grid-template-rows: 1fr 258px;
-    grid-template-areas: "activity activity activity metrics" "average performance score metrics";
-    justify-items: center;
-    align-items: center;
-    row-gap: 2.8rem;
-    column-gap: 3.1rem;
-  }
+.charts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 258px;
+  grid-template-rows: 1fr 258px;
+  grid-template-areas:
+    "activity activity activity metrics"
+    "average performance score metrics";
+  justify-items: center;
+  align-items: center;
+  row-gap: 2.8rem;
+  column-gap: 3.1rem;
 }
 
 .average,
@@ -170,9 +184,6 @@ h2 {
   aspect-ratio: 1/1;
 }
 
-.activity {
-  width: 100% !important;
-}
 .average {
   justify-self: flex-start;
 }
@@ -185,62 +196,47 @@ h2 {
   grid-area: activity;
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 2.4rem;
-  border-radius: 0.5rem;
-  background: #fbfbfb;
-  padding: 2.4rem;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
-}
 
-.activity-tooltip {
-  background: var(--primary-color);
-  color: #ffffff;
-  font-size: 0.7rem;
-  padding: 0.7rem;
+  height: 320px;
+  width: 100%;
+
+  background: #fbfbfb;
+
+  padding: 2.4rem;
+
+  @include shadow;
+
+  .tooltip {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 0.7rem;
+  }
 }
 
 .average {
   grid-area: average;
+
   position: relative;
 
-  border-radius: 0.5rem;
-  background: #f00;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  background: var(--primary-color);
 
   width: 258px;
   height: 258px;
 
-  .title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 500;
-    opacity: 0.5;
-    padding: 29px 34px;
-    text-align: left;
-  }
+  @include shadow;
 
   .tooltip {
     padding: 0.4rem 0.7rem;
-    background-color: #ffffff;
+    background: #ffffff;
     font-size: 0.8rem;
     font-weight: 500;
-  }
-
-  .value {
-    color: #000;
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 24px;
   }
 
   .tick {
     transform: translateY(-70px);
-    fill: #fff;
+    fill: #ffffff;
     font-size: 1.2rem;
     font-weight: 500;
     opacity: 0.5;
@@ -250,12 +246,12 @@ h2 {
 .performance {
   grid-area: performance;
 
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
   width: 258px;
   height: 258px;
 
   background: #282d30;
+
+  @include shadow;
 }
 
 .score {
@@ -265,9 +261,9 @@ h2 {
   height: 258px;
   padding: 2rem;
 
-  border-radius: 0.5rem;
   background: #fbfbfb;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+
+  @include shadow;
 
   .title {
     position: absolute;
@@ -314,9 +310,12 @@ h2 {
     gap: 2.4rem;
     padding: 3.2rem;
 
-    border-radius: 0.5rem;
+    width: 258px;
+    height: 124px;
+
     background: #fbfbfb;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+
+    @include shadow;
   }
 
   .content {
@@ -336,5 +335,41 @@ h2 {
     color: #282d30;
     font-size: 2rem;
     font-weight: 700;
+  }
+}
+
+@media (max-width: 1300px) {
+  .charts {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content 1fr 258px;
+    grid-template-areas: "metrics metrics metrics" "activity activity activity" "average performance score";
+  }
+
+  .metrics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: min-content;
+    gap: 3.2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .charts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metrics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: min-content;
+    gap: 3.2rem;
+  }
+
+  .average,
+  .score {
+    justify-self: unset;
   }
 }

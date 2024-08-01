@@ -16,7 +16,7 @@ const units = { kilogram: "kg", calories: "kCal" };
 function ActivityTooltip({ payload, active }) {
   if (active) {
     return (
-      <div className="activity-tooltip">
+      <div className="tooltip">
         {payload.map(({ dataKey, value }, index) => (
           <p key={index}>
             {value}
