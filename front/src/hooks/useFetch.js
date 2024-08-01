@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
  *
  * Ce hook permet de gérer le chargement, les erreurs et les données à récupèrer
  *
- * @param {Number} id - L'identifiant de l'utilisateur
- * @param {Function} api - L'api a utiliser pour récupèrer les données
- * @param {String} title - Titre informatif des données pour l'affichage des données et des erreurs dans la console
- * @param {Object|Array<Object>|Null} defaultData - Données par défaut
- *
- * @returns {Object} - Un objet contenant isLoading, error et data
+ * @param {number} id L'identifiant de l'utilisateur
+ * @param {function} api L'api a utiliser pour récupèrer les données
+ * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
+ * @param {*} [defaultData=[]] Données par défaut
+ * @returns {Object} Un objet contenant isLoading, error et data
  */
 function useFetch(id, api, title, defaultData = []) {
   const [data, setData] = useState(defaultData);

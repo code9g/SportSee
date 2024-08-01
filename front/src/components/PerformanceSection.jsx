@@ -13,10 +13,9 @@ import PerformanceChart from "./charts/PerformanceChart";
  * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
  * un graphique radar.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {number} props.user - L'utilisateur pour lequel les données de performance sont récupérées.
- *
- * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
+ * @param {Object} props Les propriétés du composant.
+ * @param {number} props.user L'utilisateur pour lequel les données de performance sont récupérées.
+ * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
  */
 function PerformanceSection({ user }) {
   const {

@@ -7,9 +7,9 @@ import fetchApi from "./fetchApi";
  * en fonction de son identifiant.
  * Note: C'est un alias de fetchApi !
  *
- * @param {Number} id - Identifiant de l'utilisateur
- *
- * @returns {Promesse} - Retourne une promesse
+ * @async
+ * @param {number} id Identifiant de l'utilisateur
+ * @returns {Promesse} Retourne une promesse
  */
 const fetchUserApi = async (id) => fetchApi(id);
 

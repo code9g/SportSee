@@ -16,10 +16,9 @@ import {
  * la durée des sessions, avec des détails supplémentaires affichés dans un tooltip personnalisé lors
  *  du survol de la ligne.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Array} props.data - Les données à afficher
- *
- * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
+ * @param {Object} props Les propriétés du composant.
+ * @param {Array} props.data Les données à afficher
+ * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageChart({ data }) {
   return (
@@ -83,11 +82,11 @@ function AverageChart({ data }) {
  *
  * Ce composant affiche une valeur avec l'unité "min" (minutes) lorsqu'un utilisateur survole un élément du graphique.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Array<Object>} props.payload - Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
- * @param {Boolean} props.active - Indique si le tooltip est actif (affiché).
+ * @param {Object} props Les propriétés du composant.
+ * @param {Array<Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
+ * @param {boolean} props.active Indique si le tooltip est actif (affiché).
  *
- * @returns {JSX.Element|null} - Un élément `div` avec la valeur et l'unité "min" si `payload` contient des données, sinon `null`.
+ * @returns {JSX.Element|null} Un élément `div` avec la valeur et l'unité "min" si `payload` contient des données, sinon `null`.
  */
 function CustomTooltip({ payload, active }) {
   if (active && payload.length) {
@@ -104,8 +103,8 @@ function CustomTooltip({ payload, active }) {
 /**
  * Composant de curseur personnalisé
  *
- * @param {Array} points - Un tableau de points contenant les coordoonnées x et y.
- * @returns {JSX.Element} - A JSX element représentant le curseur personnalisé.
+ * @param {Array<Object>} points Un tableau de points contenant les coordoonnées x et y.
+ * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.
  */
 function CustomCursor({ points }) {
   return (

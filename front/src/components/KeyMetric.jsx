@@ -5,13 +5,12 @@ import PropTypes from "prop-types";
  *
  * Ce composant affiche une métrique de l'utilisateur.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {String} props.label - L'intitulé de la métrique.
- * @param {Number} props.value - La valeur de la métrique
- * @param {Any} props.icon - L'icône de la métrique
- * @param {String} props.unit - L'unité de la métrique
- *
- * @returns {JSX.Element} - Un élément JSX contenant la métrique.
+ * @param {Object} props Les propriétés du composant.
+ * @param {string} props.label L'intitulé de la métrique.
+ * @param {number} props.value La valeur de la métrique
+ * @param {*} props.icon L'icône de la métrique
+ * @param {string} props.unit L'unité de la métrique
+ * @returns {JSX.Element} Un élément JSX contenant la métrique.
  */
 export default function KeyMetric({ label, value, icon, unit }) {
   return (

@@ -7,6 +7,7 @@ import SideBar from "../components/SideBar";
  *
  * @returns {JSX.Element}
  */
+
 function Layout() {
   return (
     <>

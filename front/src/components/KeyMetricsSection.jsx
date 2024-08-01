@@ -9,10 +9,9 @@ import NoData from "./NoData";
  *
  * Ce composant affiche les données de session de l'utilisateur.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {number} props.user - L'utilisateur pour lequel les données de performance sont affichées.
- *
- * @returns {JSX.Element} - Un élément JSX contenant les métriques.
+ * @param {Object} props Les propriétés du composant.
+ * @param {number} props.user L'utilisateur pour lequel les données de performance sont affichées.
+ * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
 function KeyMetricsSection({ user }) {
   if (!user.keyData) {

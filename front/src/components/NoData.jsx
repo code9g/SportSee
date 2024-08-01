@@ -5,10 +5,9 @@ import PropTypes from "prop-types";
  *
  * Ce composant affiche un message indiqué l'absence de donnée.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {String} props.message - Le message
- *
- * @returns {JSX.Element} - Un élément `div` avec le message.
+ * @param {Object} props Les propriétés du composant.
+ * @param {string} [props.message="Pas de donnée"] Le message
+ * @returns {JSX.Element} Un élément `div` avec le message.
  */
 function NoData({ message = "Pas de donnée" }) {
   return <div className="no-data">{message}</div>;

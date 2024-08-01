@@ -18,10 +18,9 @@ import { activityUnits } from "../../utils/consts";
  * Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Number} props.data - Les données d'activité à afficher.
- *
- * @returns {JSX.Element} - Un élément JSX contenant le graphique à barres et les icônes associées.
+ * @param {Object} props Les propriétés du composant.
+ * @param {Number} props.data Les données d'activité à afficher.
+ * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
  */
 function ActivityChart({ data }) {
   return (
@@ -112,11 +111,10 @@ function ActivityChart({ data }) {
  * Ce composant affiche des informations contextuelles dans un tooltip lorsque la souris est sur un élément du graphique.
  * Il gère les unités pour différents types de données (poids, calories, etc.).
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Array<Object>} props.payload - Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
- * @param {Boolean} props.active - Indique si le tooltip est actif (affiché).
- *
- * @returns {JSX.Element|null} - Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
+ * @param {Object} props Les propriétés du composant.
+ * @param {Array<Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
+ * @param {Boolean} props.active Indique si le tooltip est actif (affiché).
+ * @returns {JSX.Element|null} Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
  */
 function CustomTooltip({ payload, active }) {
   if (active) {

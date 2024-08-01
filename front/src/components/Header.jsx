@@ -3,8 +3,7 @@ import logo from "../assets/logo-full.svg";
 
 /**
  * Composant pour afficher l'en-tête du dashboard
- *
- * @returns {JSX.Element} - Un élément JSX contenant l'en-tête
+ * @returns {JSX.Element} Un élément JSX contenant l'en-tête
  */
 function Header() {
   const headerLinks = [

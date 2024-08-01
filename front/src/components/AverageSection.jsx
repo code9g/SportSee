@@ -14,10 +14,9 @@ import AverageChart from "./charts/AverageChart";
  * un graphique linéaire. La ligne représente la durée des sessions, avec des détails supplémentaires affichés
  * dans un tooltip personnalisé lors du survol de la ligne.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {number} props.user - L'utilisateur pour lequel les données de session sont récupérées.
- *
- * @returns {JSX.Element} - Un élément JSX contenant le graphique linéaire et le titre associé.
+ * @param {Object} props Les propriétés du composant.
+ * @param {number} props.user L'utilisateur pour lequel les données de session sont récupérées.
+ * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageSection({ user }) {
   const {

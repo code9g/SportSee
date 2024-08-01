@@ -6,16 +6,16 @@ import proteinIcon from "../assets/icons/protein.svg";
 /**
  * Constante content l'url vers le service API REST
  *
- * @type {String}
- **/
+ * @type {string}
+ */
 export const URL_API = "http://localhost:3000";
 
 /**
  * Tableau d'objets contenant les unités associés au clé
  * Les clés correspondent au type d'unité
  *
- * @type {Object.<String, String>}
- **/
+ * @type {Object.<string, string>}
+ */
 export const activityUnits = { kilogram: "kg", calories: "kCal" };
 
 /**

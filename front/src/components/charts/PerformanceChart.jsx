@@ -14,9 +14,8 @@ import {
  *
  * Ce composant affiche les données de performance en utilisant un graphique radar.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Array<Objet>} props.data - Les données de performance à afficher.
- *
+ * @param {Object} props Les propriétés du composant.
+ * @param {Array<Objet>} props.data Les données de performance à afficher.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
  */
 function PerformanceChart({ data }) {
@@ -39,14 +38,13 @@ function PerformanceChart({ data }) {
  *
  * Ce composant affiche des informations sur le type (kind) dans un <Text>, permettant d'espacer le texte du radar
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {Array<Object>} props.payload - Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
- * @param {Number} props.x - La coordonnée en x du text
- * @param {Number} props.y - La coordonnée en y du text
- * @param {Number} props.cx - Le centre du graphique en x
- * @param {Number} props.cy - Le centre du graphique en y
- *
- * @returns {JSX.Element} - Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
+ * @param {Object} props Les propriétés du composant.
+ * @param {Array<Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
+ * @param {number} props.x La coordonnée en x du text
+ * @param {number} props.y La coordonnée en y du text
+ * @param {number} props.cx Le centre du graphique en x
+ * @param {number} props.cy Le centre du graphique en y
+ * @returns {JSX.Element} Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
  */
 function CustomTick({ payload, x, y, cx, cy, ...rest }) {
   return (
