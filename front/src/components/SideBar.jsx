@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import bikeIcon from "../assets/bike.svg";
-import swimmingIcon from "../assets/swimming.svg";
-import weightLiftingIcon from "../assets/weightlifting.svg";
-import zenIcon from "../assets/zen.svg";
+import bikeIcon from "../assets/icons/bike.svg";
+import swimmingIcon from "../assets/icons/swimming.svg";
+import weightLiftingIcon from "../assets/icons/weightlifting.svg";
+import zenIcon from "../assets/icons/zen.svg";
 
 const sideBarLinks = [
   { icon: zenIcon, alt: "", to: "#zen" },
