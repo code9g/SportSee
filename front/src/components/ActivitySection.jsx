@@ -44,7 +44,7 @@ function ActivitySection({ user }) {
     return <Error message={error} />;
   }
 
-  if (!activity) {
+  if (!activity || activity.length === 0) {
     return <NoData />;
   }
 

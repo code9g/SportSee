@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
+import NoData from "./NoData";
 
 /**
  * Composant pour afficher le score utilisateur sous forme de graphique radial.
@@ -10,6 +11,10 @@ import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
 function ScoreSection({ user }) {
+  if (user.todayScore === undefined || user.score === undefined) {
+    return <NoData />;
+  }
+
   const score = parseFloat(user.todayScore || user.score);
 
   const data = [{ name: "Score", value: score }];

@@ -44,12 +44,7 @@ function PerformanceSection({ user }) {
     return <NoData />;
   }
 
-  const data = performance.data
-    .map((item) => ({
-      value: item.value,
-      kind: item.kind,
-    }))
-    .reverse();
+  const data = [...performance.data].reverse();
 
   return (
     <section className="performance">
