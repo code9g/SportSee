@@ -13,37 +13,54 @@ function ScoreChart({ score }) {
   const data = [{ name: "Score", value: score }];
 
   return (
-    <>
-      <h3 className="title">Score</h3>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart
-          innerRadius="0%"
-          outerRadius="0%"
-          data={data}
-          startAngle={90}
-          endAngle={450}
+    <ResponsiveContainer width="100%" height="100%">
+      <RadialBarChart
+        innerRadius="0%"
+        outerRadius="0%"
+        data={data}
+        startAngle={90}
+        endAngle={450}
+      >
+        <text x="0%" y="5%" fontSize="1.5rem" fontWeight={500}>
+          Score
+        </text>
+        <RadialBar
+          data={[{ value: 1 }]}
+          dataKey="value"
+          barSize={150}
+          fill="#ffffff"
+          isAnimationActive={false}
+        />
+        <RadialBar
+          dataKey="value"
+          barSize={10}
+          cornerRadius={100}
+          fill="#FF0000"
+        />
+        <text
+          textAnchor="middle"
+          fontSize="1.6rem"
+          fontWeight={500}
+          fill="#74798C"
         >
-          <RadialBar
-            data={[{ value: 1 }]}
-            dataKey="value"
-            barSize={140}
-            fill="#ffffff"
-            isAnimationActive={false}
-          />
-          <RadialBar
-            dataKey="value"
-            barSize={5}
-            cornerRadius={100}
-            fill="#FF0000"
-          />
-        </RadialBarChart>
-      </ResponsiveContainer>
-      <div className="label">
-        <p className="percent">{Math.round(100 * score)} %</p>
-        <p>de votre</p>
-        <p>objectif</p>
-      </div>
-    </>
+          <tspan
+            x="50%"
+            y="47%"
+            fontSize="2.6rem"
+            fontWeight={700}
+            fill="#282D30"
+          >
+            {Math.round(score * 100)}%
+          </tspan>
+          <tspan x="50%" y="57%">
+            de votre
+          </tspan>
+          <tspan x="50%" y="67%">
+            objectif
+          </tspan>
+        </text>
+      </RadialBarChart>
+    </ResponsiveContainer>
   );
 }
 
