@@ -1,8 +1,50 @@
-# React + Vite
+# SportSee
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projet 12 de la formation "Développeur JavaScript / React" de OpenClassRoom
 
-Currently, two official plugins are available:
+Développez un tableau de bord d'analytics avec React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
+
+## Technologies
+
+Ce projet a été réalisé en [Vite + React](https://vitejs.dev/), en Javascript (et non en TypesSript).
+
+Ce choix a été fait par simplicité, en effet, il est plus rapide et facile d'utiliser [Vite + React](https://vitejs.dev/).
+
+## Les dépendances
+
+Pour installer les dépendances :
+
+```
+npm install
+```
+
+Liste des dépendances (et leur documentation) en dehors de celle installé par défaut par Vite + React :
+
+- [react-router-dom](https://reactrouter.com/en/main),
+- [recharts](https://recharts.org/en-US/),
+- [sass](https://sass-lang.com/).
+
+## Tester
+
+Lancer avec :
+
+```
+npm run dev
+```
+
+Cliquez sur "Profil" pour arriver sur le profil d'un utilisateur choisi arbirtrairement par mes soins.
+
+Sinon, et ce uniquement afin de tester différents utilisateurs disponibles, vous pouvez également y accéder en allant sur /user/:id, avec :id commet identifiant de l'utilisateur.
+
+Cependant, à ce jour, il n'y a que deux utilisateurs, Karl (Id: 12) et Cécilia (Id: 18).
+
+Si vous indiquez un identifiant invalide, comme par exemple "1x" (autrement dit, qui n'est strictement un nombre), une page d'erreur s'affichera et indiquera que l'identifiant est invalide.
+
+Et si l'utilisateur n'existe pas, il vous indiquera simplement que cet
+utilisateur n'existe pas.
+
+## Notes
+
+Seule la page "profil" a été développée, ainsi que la route /user/:id qui ne fait que reconduire sur la page "profil" avec l'identifiant souhaité.
