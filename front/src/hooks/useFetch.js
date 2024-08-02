@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
  * @param {number} id L'identifiant de l'utilisateur
  * @param {function} fetchApi L'API a utiliser pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
- * @param {*} [defaultData=[]] Données par défaut
- * @returns {Object} Un objet contenant isLoading, error et data
+ * @param {*} defaultData Données par défaut
+ * @returns {{data: *, isLoading: boolean, error: ?string}} Un objet contenant isLoading, error et data
  */
-function useFetch(id, fetchApi, title, defaultData = []) {
+function useFetch(id, fetchApi, title, defaultData) {
   const [data, setData] = useState(defaultData);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
