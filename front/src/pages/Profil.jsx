@@ -39,6 +39,14 @@ function Profil({ id }) {
     return <NoData />;
   }
 
+  const sections = [
+    { name: "metrics", element: <KeyMetrics /> },
+    { name: "activity", element: <Activity /> },
+    { name: "average", element: <Average /> },
+    { name: "performance", element: <Performance /> },
+    { name: "score", element: <Score /> },
+  ];
+
   return (
     <UserProvider user={user}>
       <div className="container">
@@ -52,21 +60,11 @@ function Profil({ id }) {
           </p>
         </div>
         <div className="charts">
-          <section className="metrics-section">
-            <KeyMetrics />
-          </section>
-          <section className="activity-section">
-            <Activity />
-          </section>
-          <section className="average-section">
-            <Average />
-          </section>
-          <section className="performance-section">
-            <Performance />
-          </section>
-          <section className="score-section">
-            <Score />
-          </section>
+          {sections.map(({ name, element }, index) => (
+            <section key={index} className={`${name}-section`}>
+              {element}
+            </section>
+          ))}
         </div>
       </div>
     </UserProvider>
