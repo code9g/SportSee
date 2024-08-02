@@ -20,7 +20,7 @@ function KeyMetrics() {
   }
 
   return (
-    <>
+    <div className="metrics">
       {keys.map(({ key, label, icon, unit }, index) => (
         <KeyMetric
           key={index}
@@ -30,7 +30,7 @@ function KeyMetrics() {
           value={user.keyData[key]}
         />
       ))}
-    </>
+    </div>
   );
 }
 

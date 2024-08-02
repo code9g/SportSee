@@ -10,7 +10,7 @@ import Score from "./Score";
  */
 function ScoreSection() {
   return (
-    <section className="score">
+    <section className="score-section">
       <Score />
     </section>
   );

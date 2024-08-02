@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import KeyMetrics from "./KeyMetrics";
 
 /**
@@ -11,14 +9,10 @@ import KeyMetrics from "./KeyMetrics";
  */
 function KeyMetricsSection() {
   return (
-    <section className="metrics">
+    <section className="metrics-section">
       <KeyMetrics />
     </section>
   );
 }
-
-KeyMetricsSection.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default KeyMetricsSection;

@@ -10,7 +10,7 @@ import Activity from "./Activity";
  */
 function ActivitySection() {
   return (
-    <section className="activity">
+    <section className="activity-section">
       <Activity />
     </section>
   );

@@ -10,7 +10,7 @@ import Average from "./Average";
  */
 function AverageSection() {
   return (
-    <section className="average">
+    <section className="average-section">
       <Average />
     </section>
   );

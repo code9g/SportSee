@@ -1,0 +1,25 @@
+.metrics-section {
+  grid-area: metrics;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 258px;
+  height: 100%;
+
+  @media (max-width: 1300px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: min-content;
+    gap: 3.2rem;
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: min-content;
+    gap: 3.2rem;
+  }
+}

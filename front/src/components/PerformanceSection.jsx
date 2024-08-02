@@ -10,7 +10,7 @@ import Performance from "./Performance";
  */
 function PerformanceSection() {
   return (
-    <section className="performance">
+    <section className="performance-section">
       <Performance />
     </section>
   );

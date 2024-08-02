@@ -18,13 +18,14 @@
 @use "layout/layout";
 @use "layout/header";
 @use "layout/sidebar";
+@use "layout/activity-section";
+@use "layout/average-section";
+@use "layout/metrics-section";
+@use "layout/performance-section";
+@use "layout/score-section";
 
 // 4. Components
-@use "components/activity";
-@use "components/average";
 @use "components/metrics";
-@use "components/performance";
-@use "components/score";
 
 // 5. Pages
 @use "pages/profil";
