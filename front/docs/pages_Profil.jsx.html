@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Profil.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Profil.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import Activity from "../components/Activity";
+import Average from "../components/Average";
+import Error from "../components/Error";
+import KeyMetrics from "../components/KeyMetrics";
+import Loading from "../components/Loading";
+import NoData from "../components/NoData";
+import Performance from "../components/Performance";
+import Score from "../components/Score";
+import useFetch from "../hooks/useFetch";
+import UserProvider from "../providers/UserProvider";
+import fetchUserApi from "../services/fetchUserApi";
+
+/**
+ * Objet définisant une section
+ *
+ * @typedef {Object} SectionObject
+ * @property {string} name Préfixe à utiliser pour définir la classe de la section (*-section)
+ * @property {JSX.Element} element L'élément JSX à placer dans la section
+ */
+
+/**
+ * Tableau pour générer les sections à afficher
+ *
+ * @type {Array.&lt;SectionObject>}
+ */
+const sections = [
+  { name: "metrics", element: &lt;KeyMetrics /> },
+  { name: "activity", element: &lt;Activity /> },
+  { name: "average", element: &lt;Average /> },
+  { name: "performance", element: &lt;Performance /> },
+  { name: "score", element: &lt;Score /> },
+];
+
+/**
+ * Composant pour afficher la page de profil d'un utilisateur en récupérant ses données
+ * par le biais de son identifiant (id) et afficher les informations et les graphiques
+ * le concernant
+ *
+ * @param {{id: number}} props Les propriétés du composant.
+ * @param {number} props.id Id de l'utilisateur.
+ * @returns {JSX.Element} Un élément JSX contenant la page de profil.
+ */
+function Profil({ id }) {
+  const {
+    isLoading,
+    isAborted,
+    error,
+    data: user,
+  } = useFetch(id, fetchUserApi, "user", null);
+
+  if (isLoading || isAborted) {
+    return &lt;Loading />;
+  }
+
+  if (error) {
+    return &lt;Error message={error} />;
+  }
+
+  if (!user) {
+    return &lt;NoData />;
+  }
+
+  return (
+    &lt;UserProvider user={user}>
+      &lt;div className="container">
+        &lt;div className="info">
+          &lt;h2 className="title">
+            Bonjour{" "}
+            &lt;span className="first-name">{user.userInfos.firstName}&lt;/span>
+          &lt;/h2>
+          &lt;p className="message">
+            Félicitation ! Vous avez explosé vos objectifs hier 👏
+          &lt;/p>
+        &lt;/div>
+        &lt;div className="charts">
+          {sections.map(({ name, element }, index) => (
+            &lt;section key={index} className={`${name}-section`}>
+              {element}
+            &lt;/section>
+          ))}
+        &lt;/div>
+      &lt;/div>
+    &lt;/UserProvider>
+  );
+}
+
+Profil.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+export default Profil;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#ActivityCustomTooltip">ActivityCustomTooltip</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#AverageChart">AverageChart</a></li><li><a href="global.html#AverageCustomCursor">AverageCustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Developper">Developper</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyMetrics">KeyMetrics</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#NoData">NoData</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#NotYetImplemented">NotYetImplemented</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#PerformanceCustomTick">PerformanceCustomTick</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#URL_API">URL_API</a></li><li><a href="global.html#UserContext">UserContext</a></li><li><a href="global.html#UserProvider">UserProvider</a></li><li><a href="global.html#activityUnits">activityUnits</a></li><li><a href="global.html#dayOfWeek">dayOfWeek</a></li><li><a href="global.html#fetchApi">fetchApi</a></li><li><a href="global.html#fetchUserActivityApi">fetchUserActivityApi</a></li><li><a href="global.html#fetchUserApi">fetchUserApi</a></li><li><a href="global.html#fetchUserAverageSessionsApi">fetchUserAverageSessionsApi</a></li><li><a href="global.html#fetchUserPerformanceApi">fetchUserPerformanceApi</a></li><li><a href="global.html#headerLinks">headerLinks</a></li><li><a href="global.html#kinds">kinds</a></li><li><a href="global.html#metrics">metrics</a></li><li><a href="global.html#sections">sections</a></li><li><a href="global.html#sideBarLinks">sideBarLinks</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUser">useUser</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Aug 03 2024 00:35:43 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

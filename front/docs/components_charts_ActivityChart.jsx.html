@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/charts/ActivityChart.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/charts/ActivityChart.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { activityUnits } from "../../utils/consts";
+
+/**
+ * Objet représentant les données d'une activité (kg et kCal)
+ *
+ * @typedef {Object} ActivityDataObject
+ * @property {number} kilogram Le poids en kg
+ * @property {number} calories Les calories en kCal
+ * @property {number} day L'indice du jour
+ */
+
+/**
+ * Ce composant affiche les données d'activité sous forme de graphique à barres.
+ * Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
+ * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires
+ * lors du survol des barres.
+ *
+ * @param {{data: Array.&lt;ActivityDataObject>}} props Les propriétés du composant.
+ * @param {Array.&lt;ActivityDataObject>} props.data Les données d'activité à afficher.
+ * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
+ */
+function ActivityChart({ data }) {
+  return (
+    &lt;ResponsiveContainer width="100%" height="100%">
+      &lt;BarChart data={data} barGap={12} barSize={8}>
+        &lt;text
+          x={0}
+          y={20}
+          textAnchor="left"
+          style={{
+            fontSize: "1.4rem",
+            fontWeight: 500,
+            fill: "#000000",
+          }}
+        >
+          Activité quotidienne
+        &lt;/text>
+
+        &lt;CartesianGrid strokeDasharray="3 3" opacity={0.5} vertical={false} />
+        &lt;XAxis
+          dataKey="day"
+          tickLine={false}
+          axisLine={{ stroke: "#dedede" }}
+          tick={{ stroke: "#9b9eac", fontWeight: 400 }}
+          dy={14}
+        />
+        &lt;YAxis
+          yAxisId="kilogram"
+          orientation="right"
+          stroke="#282d30"
+          axisLine={false}
+          tickLine={false}
+          tickCount={3}
+          tick={{ stroke: "#9b9eac", fontWeight: "400" }}
+          type="number"
+          domain={["dataMin - 5", "auto"]}
+          dx={14}
+        />
+        &lt;YAxis
+          yAxisId="calories"
+          orientation="left"
+          stroke="#e60000"
+          axisLine={false}
+          tickLine={false}
+          tickCount={3}
+          hide={true}
+          domain={["dataMin - 50", "auto"]}
+          dx={-16}
+        />
+        &lt;Tooltip content={ActivityCustomTooltip} />
+        &lt;Legend
+          layout="horizontal"
+          verticalAlign="top"
+          align="right"
+          iconType="circle"
+          iconSize="0.8rem"
+          wrapperStyle={{
+            paddingBottom: "4rem",
+            fontSize: "1.5rem",
+          }}
+        />
+        &lt;Bar
+          yAxisId="kilogram"
+          name="Poids (kg)"
+          dataKey="kilogram"
+          unit="kg"
+          fill="#282D30"
+          radius={[20, 20, 0, 0]}
+        />
+        &lt;Bar
+          yAxisId="calories"
+          name="Calories brûlées (kCal)"
+          dataKey="calories"
+          unit="kCal"
+          fill="#e60000"
+          radius={[20, 20, 0, 0]}
+        />
+      &lt;/BarChart>
+    &lt;/ResponsiveContainer>
+  );
+}
+
+/**
+ * Ce composant affiche des informations contextuelles dans un tooltip lorsque la
+ * souris est sur un élément du graphique. Il gère les unités pour différents types
+ * de données (poids, calories, etc.).
+ *
+ * @param {{payload: Array.&lt;Object>}} props Les propriétés du composant.
+ * @param {Array&lt;Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
+ * @param {boolean} props.active Indique si le tooltip est actif (affiché).
+ * @returns {JSX.Element|null} Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
+ */
+function ActivityCustomTooltip({ payload, active }) {
+  if (active) {
+    return (
+      &lt;div className="tooltip">
+        {payload.map(({ dataKey, value }, index) => (
+          &lt;p key={index}>
+            {value}
+            {activityUnits[dataKey.toLowerCase()] ?? ""}
+          &lt;/p>
+        ))}
+      &lt;/div>
+    );
+  }
+
+  return null;
+}
+
+ActivityCustomTooltip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool,
+};
+
+ActivityChart.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default ActivityChart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#ActivityCustomTooltip">ActivityCustomTooltip</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#AverageChart">AverageChart</a></li><li><a href="global.html#AverageCustomCursor">AverageCustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Developper">Developper</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyMetrics">KeyMetrics</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#NoData">NoData</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#NotYetImplemented">NotYetImplemented</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#PerformanceCustomTick">PerformanceCustomTick</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#URL_API">URL_API</a></li><li><a href="global.html#UserContext">UserContext</a></li><li><a href="global.html#UserProvider">UserProvider</a></li><li><a href="global.html#activityUnits">activityUnits</a></li><li><a href="global.html#dayOfWeek">dayOfWeek</a></li><li><a href="global.html#fetchApi">fetchApi</a></li><li><a href="global.html#fetchUserActivityApi">fetchUserActivityApi</a></li><li><a href="global.html#fetchUserApi">fetchUserApi</a></li><li><a href="global.html#fetchUserAverageSessionsApi">fetchUserAverageSessionsApi</a></li><li><a href="global.html#fetchUserPerformanceApi">fetchUserPerformanceApi</a></li><li><a href="global.html#headerLinks">headerLinks</a></li><li><a href="global.html#kinds">kinds</a></li><li><a href="global.html#metrics">metrics</a></li><li><a href="global.html#sections">sections</a></li><li><a href="global.html#sideBarLinks">sideBarLinks</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUser">useUser</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Aug 03 2024 00:35:43 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
