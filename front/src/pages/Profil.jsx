@@ -15,10 +15,9 @@ import fetchUserApi from "../services/fetchUserApi";
  *
  * Ce composant récupère les données d'un utilisateur spécifique et affiche les informations et les graphiques.
  *
- * @param {Object} props - Les propriétés du composant.
- * @param {number} props.id - Id de l'utilisateur.
- *
- * @returns {JSX.Element} - Un élément JSX contenant la page de profil.
+ * @param {Object} props Les propriétés du composant.
+ * @param {number} props.id Id de l'utilisateur.
+ * @returns {JSX.Element} Un élément JSX contenant la page de profil.
  */
 function Profil({ id }) {
   const {
