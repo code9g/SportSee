@@ -6,11 +6,21 @@ Développez un tableau de bord d'analytics avec React
 
 ## Introduction
 
+Vous travaillez en tant que développeur chez SportSee, une startup dédiée au coaching sportif.
+
+En pleine croissance, l’entreprise va aujourd’hui lancer une nouvelle version de la page profil de l’utilisateur.
+
+Cette page va notamment permettre à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées.
+
 ## Technologies
 
 Ce projet a été réalisé en [Vite + React](https://vitejs.dev/), en Javascript (et non en TypesSript).
 
 Ce choix a été fait par simplicité, en effet, il est plus rapide et facile d'utiliser [Vite + React](https://vitejs.dev/).
+
+Le routage choisi est celui de [react-router-dom](https://reactrouter.com/en/main), assez simple à mettre en oeuvre.
+
+Concernant la partie "charts", j'ai choisi [recharts](https://recharts.org/en-US/), plus facile et plus simple à utiliser, comparé a [d3](https://d3js.org/) que je trouve assez verbeux.
 
 ## Les dépendances
 
