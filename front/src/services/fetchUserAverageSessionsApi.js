@@ -11,7 +11,9 @@ import fetchApi from "./fetchApi";
  * @param {number} userId Identifiant de l'utilisateur
  * @returns {Promesse} Retourne une promesse
  */
-const fetchUserAverageSessionsApi = async (userId) =>
-  fetchApi(userId, "/average-sessions").then((average) => average?.sessions);
+const fetchUserAverageSessionsApi = async (userId, ...args) =>
+  fetchApi(userId, "/average-sessions", ...args).then(
+    (average) => average?.sessions
+  );
 
 export default fetchUserAverageSessionsApi;

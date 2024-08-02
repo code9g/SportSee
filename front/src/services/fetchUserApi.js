@@ -11,6 +11,6 @@ import fetchApi from "./fetchApi";
  * @param {number} id Identifiant de l'utilisateur
  * @returns {Promesse} Retourne une promesse
  */
-const fetchUserApi = async (id) => fetchApi(id);
+const fetchUserApi = async (id, ...args) => fetchApi(id, "", ...args);
 
 export default fetchUserApi;

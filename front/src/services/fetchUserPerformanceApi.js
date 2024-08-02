@@ -11,7 +11,7 @@ import fetchApi from "./fetchApi";
  * @param {number} userId Identifiant de l'utilisateu
  * @returns {Promesse} Retourne une promesse
  */
-const fetchUserPerformanceApi = async (userId) =>
-  fetchApi(userId, "/performance");
+const fetchUserPerformanceApi = async (userId, ...args) =>
+  fetchApi(userId, "/performance", ...args);
 
 export default fetchUserPerformanceApi;

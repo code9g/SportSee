@@ -13,15 +13,16 @@ import { useEffect, useState } from "react";
  */
 function useFetch(id, api, title, defaultData = []) {
   const [data, setData] = useState(defaultData);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const abortController = new AbortController();
     setIsLoading(true);
-    setError(null);
-    api(id)
+    api(id, { signal: abortController.signal })
       .then((data) => {
         setData(data);
+        setError(null);
         console.log(`Données '${title}':`, data);
       })
       .catch((e) => {
@@ -31,6 +32,9 @@ function useFetch(id, api, title, defaultData = []) {
       .finally(() => {
         setIsLoading(false);
       });
+    return () => {
+      abortController.abort();
+    };
   }, [id, title, api]);
 
   return { data, isLoading, error };

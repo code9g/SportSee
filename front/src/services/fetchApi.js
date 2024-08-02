@@ -8,11 +8,11 @@ import { URL_API } from "../utils/consts";
  *
  * @async
  * @param {number} userId Identifiant de l'utilisateur
- * @param {string} [path=""] Endpoints de l'API REST
+ * @param {string} path Endpoints de l'API REST
  * @returns {Promesse} Retourne une promesse
  */
-const fetchApi = async (userId, path = "") =>
-  fetch(`${URL_API}/user/${userId}${path}`)
+const fetchApi = async (userId, path, ...args) =>
+  fetch(`${URL_API}/user/${userId}${path}`, ...args)
     .then((response) => response.json())
     .then((json) => json?.data);
 
