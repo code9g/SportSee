@@ -3,13 +3,19 @@ import { useEffect, useState } from "react";
 /**
  * Hook de gestion du fetch des données
  *
- * Ce hook permet de gérer le chargement, les erreurs et les données à récupèrer
+ * Ce hook permet de gérer le chargement, les erreurs et les données à récupèrer :
+ *   - data      : Les données récupérées ou la valeur par défaut
+ *   - isLoading : Indicateur de chargement en cours
+ *   - isAborted : Indicateur d'annulation du chargement (est déclenché lorsque le
+ *                 composant est démonté, c'est souvent le cas avec le strict mode,
+ *                 qui effectue deux montage du composant)
+ *   - error : Contient le message d'erreur ou null
  *
  * @param {number} id L'identifiant de l'utilisateur
  * @param {function} fetcher L'API a utiliser pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
  * @param {*} defaultData Données par défaut
- * @returns {{data: *; isLoading: boolean; isAborted: boolean; error: ?string}} Un objet contenant isLoading, error et data
+ * @returns {{data: *; isLoading: boolean; isAborted: boolean; isAborted: boolean; error: ?string}} Un objet contenant isLoading, error et data
  */
 function useFetch(id, fetcher, title, defaultData) {
   const [data, setData] = useState(defaultData);
