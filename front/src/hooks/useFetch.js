@@ -30,8 +30,8 @@ function useFetch(id, fetcher, title, defaultData) {
           setError(`Annulation du chargement des données '${title}' !`);
           console.warn(`Annulation du chargement des données '${title}' !`);
         } else {
-          console.error(e);
           setError(`Echec de chargement des données '${title}' !`);
+          console.error(e);
         }
       })
       .finally(() => {

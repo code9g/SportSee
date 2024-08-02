@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="" element={<Navigate to="/home" />} />
+            <Route path="" element={<Navigate to="/profil" />} />
             <Route path="home" element={<NotYetImplemented />} />
             <Route path="profil" element={<Profil id={defaultUserId} />} />
             <Route path="setting" element={<NotYetImplemented />} />
