@@ -5,7 +5,7 @@
   "scripts": {
     "back": "cd back && yarn start",
     "front": "cd front && npm run dev",
-    "jsdoc": "jsdoc ./front/src -r -d ./front/docs"
+    "jsdoc": "jsdoc ./front/src -r -d ./docs"
   },
   "author": {
     "name": "Pierre HENRY",

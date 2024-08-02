@@ -74,7 +74,7 @@ npm install -g jsdoc
 Puis de lancer la commande :
 
 ```
-jsdoc ./src -r -d ./docs
+jsdoc ./src -r -d ../docs
 ```
 
 ou
@@ -82,5 +82,3 @@ ou
 ```
 npm run jsdoc
 ```
-
-Vous trouverez la documentation [ici](./docs/index.html)
