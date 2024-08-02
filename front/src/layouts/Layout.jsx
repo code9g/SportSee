@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
-import SideBar from "../components/SideBar";
+import Header from "./Header";
+import SideBar from "./SideBar";
 
 /**
  * Composant pour afficher le 'layout' qui est l'affichage principal.
  *
  * @returns {JSX.Element}
  */
-
 function Layout() {
   return (
     <>

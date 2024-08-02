@@ -5,18 +5,23 @@ import weightLiftingIcon from "../assets/icons/weightlifting.svg";
 import zenIcon from "../assets/icons/zen.svg";
 
 /**
+ * Tableau des fonctionnalités (features) dans la barre latèrale
+ *
+ * @type {Array<Object.{icon: any, alt: string, to: string}>}
+ */
+const sideBarLinks = [
+  { icon: zenIcon, alt: "", to: "#zen" },
+  { icon: swimmingIcon, alt: "", to: "#swimming" },
+  { icon: bikeIcon, alt: "", to: "#bike" },
+  { icon: weightLiftingIcon, alt: "", to: "#weight" },
+];
+
+/**
  * Composant pour afficher la barre latérale (features).
  *
  * @returns {JSX.Element} Le composant affichant la barre latérale.
  */
 function SideBar() {
-  const sideBarLinks = [
-    { icon: zenIcon, alt: "", to: "#zen" },
-    { icon: swimmingIcon, alt: "", to: "#swimming" },
-    { icon: bikeIcon, alt: "", to: "#bike" },
-    { icon: weightLiftingIcon, alt: "", to: "#weight" },
-  ];
-
   return (
     <aside className="sidebar">
       <div className="content">
