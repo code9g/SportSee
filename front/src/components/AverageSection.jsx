@@ -1,23 +1,22 @@
-import PropTypes from "prop-types";
+import useUser from "../hooks/useUser";
 import Average from "./Average";
 
 /**
  * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire
  * dans une section.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel les données de session sont récupérées.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
-function AverageSection({ user }) {
+function AverageSection() {
+  const { user } = useUser();
+
   return (
     <section className="average">
       <Average user={user} />
     </section>
   );
 }
-AverageSection.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default AverageSection;

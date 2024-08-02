@@ -8,6 +8,7 @@ import NoData from "../components/NoData";
 import PerformanceSection from "../components/PerformanceSection";
 import ScoreSection from "../components/ScoreSection";
 import useFetch from "../hooks/useFetch";
+import UserProvider from "../providers/UserProvider";
 import fetchUserApi from "../services/fetchUserApi";
 
 /**
@@ -39,7 +40,7 @@ function Profil({ id }) {
   }
 
   return (
-    <>
+    <UserProvider user={user}>
       <div className="container">
         <div className="info">
           <h2 className="title">
@@ -58,7 +59,7 @@ function Profil({ id }) {
           <ScoreSection user={user} />
         </div>
       </div>
-    </>
+    </UserProvider>
   );
 }
 

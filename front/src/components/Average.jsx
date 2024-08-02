@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import useFetch from "../hooks/useFetch";
+import useUser from "../hooks/useUser";
 import fetchUserAverageSessionsApi from "../services/fetchUserAverageSessionsApi";
 import { dayOfWeek } from "../utils/consts";
 import Error from "./Error";
@@ -15,11 +15,13 @@ import AverageChart from "./charts/AverageChart";
  * un graphique linéaire. La ligne représente la durée des sessions, avec des détails supplémentaires affichés
  * dans un tooltip personnalisé lors du survol de la ligne.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel les données de session sont récupérées.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
-function Average({ user }) {
+function Average() {
+  const { user } = useUser();
+
   const {
     isLoading,
     error,
@@ -45,8 +47,5 @@ function Average({ user }) {
 
   return <AverageChart data={data} />;
 }
-Average.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default Average;

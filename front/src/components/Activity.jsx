@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
-
 import useFetch from "../hooks/useFetch";
+import useUser from "../hooks/useUser";
 import fetchUserActivityApi from "../services/fetchUserActivityApi";
 import Error from "./Error";
 import Loading from "./Loading";
@@ -15,11 +14,13 @@ import ActivityChart from "./charts/ActivityChart";
  * un graphique à barres. Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour les données d'activité sont récupérées.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
  */
-function Activity({ user }) {
+function Activity() {
+  const { user } = useUser();
+
   const {
     isLoading,
     error,
@@ -42,9 +43,5 @@ function Activity({ user }) {
 
   return <ActivityChart data={data} />;
 }
-
-Activity.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default Activity;

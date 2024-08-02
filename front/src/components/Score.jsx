@@ -1,15 +1,17 @@
-import PropTypes from "prop-types";
+import useUser from "../hooks/useUser";
 import NoData from "./NoData";
 import ScoreChart from "./charts/ScoreChart";
 
 /**
  * Composant pour afficher le score utilisateur sous forme de graphique radial.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel afficher le score.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
-function Score({ user }) {
+function Score() {
+  const { user } = useUser();
+
   if (user.todayScore === undefined && user.score === undefined) {
     return <NoData />;
   }
@@ -18,9 +20,5 @@ function Score({ user }) {
 
   return <ScoreChart score={score} />;
 }
-
-Score.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default Score;

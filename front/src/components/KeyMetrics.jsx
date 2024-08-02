@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-
+import useUser from "../hooks/useUser";
 import { keys } from "../utils/consts";
 import KeyMetric from "./KeyMetric";
 import NoData from "./NoData";
@@ -9,11 +8,13 @@ import NoData from "./NoData";
  *
  * Ce composant affiche les données de session de l'utilisateur.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel les données de performance sont affichées.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
-function KeyMetrics({ user }) {
+function KeyMetrics() {
+  const { user } = useUser();
+
   if (!user.keyData) {
     return <NoData />;
   }
@@ -32,9 +33,5 @@ function KeyMetrics({ user }) {
     </>
   );
 }
-
-KeyMetrics.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default KeyMetrics;

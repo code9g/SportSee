@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 
+import useUser from "../hooks/useUser";
 import KeyMetrics from "./KeyMetrics";
 import NoData from "./NoData";
 
 /**
  * Composant pour afficher les métriques de l'utilisateur dans une section.
  *
- * Ce composant affiche les données des métriques de l'utilisateur
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel les données de performance sont affichées.
  * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
-function KeyMetricsSection({ user }) {
+function KeyMetricsSection() {
+  const { user } = useUser();
+
   if (!user.keyData) {
     return <NoData />;
   }

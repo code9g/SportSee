@@ -1,24 +1,22 @@
-import PropTypes from "prop-types";
+import useUser from "../hooks/useUser";
 import Score from "./Score";
 
 /**
  * Composant pour afficher le score utilisateur sous forme de graphique radial dans
  * une section.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel afficher le score.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
-function ScoreSection({ user }) {
+function ScoreSection() {
+  const { user } = useUser();
+
   return (
     <section className="score">
       <Score user={user} />
     </section>
   );
 }
-
-ScoreSection.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default ScoreSection;

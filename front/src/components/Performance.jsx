@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import useFetch from "../hooks/useFetch";
+import useUser from "../hooks/useUser";
 import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
 import { kinds } from "../utils/consts";
 import Error from "./Error";
@@ -14,11 +14,13 @@ import PerformanceChart from "./charts/PerformanceChart";
  * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
  * un graphique radar.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Object} props.user L'utilisateur pour lequel les données de performance sont récupérées.
+ * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ *
  * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
  */
-function Performance({ user }) {
+function Performance() {
+  const { user } = useUser();
+
   const {
     isLoading,
     error,
@@ -43,9 +45,5 @@ function Performance({ user }) {
 
   return <PerformanceChart data={data} />;
 }
-
-Performance.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 export default Performance;
