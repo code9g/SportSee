@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import ActivitySection from "../components/ActivitySection";
-import AverageSection from "../components/AverageSection";
+import Activity from "../components/Activity";
+import Average from "../components/Average";
 import Error from "../components/Error";
-import KeyMetricsSection from "../components/KeyMetricsSection";
+import KeyMetrics from "../components/KeyMetrics";
 import Loading from "../components/Loading";
 import NoData from "../components/NoData";
-import PerformanceSection from "../components/PerformanceSection";
-import ScoreSection from "../components/ScoreSection";
+import Performance from "../components/Performance";
+import Score from "../components/Score";
 import useFetch from "../hooks/useFetch";
 import UserProvider from "../providers/UserProvider";
 import fetchUserApi from "../services/fetchUserApi";
@@ -52,11 +52,21 @@ function Profil({ id }) {
           </p>
         </div>
         <div className="charts">
-          <KeyMetricsSection />
-          <ActivitySection />
-          <AverageSection />
-          <PerformanceSection />
-          <ScoreSection />
+          <section className="metrics-section">
+            <KeyMetrics />
+          </section>
+          <section className="activity-section">
+            <Activity />
+          </section>
+          <section className="average-section">
+            <Average />
+          </section>
+          <section className="performance-section">
+            <Performance />
+          </section>
+          <section className="score-section">
+            <Score />
+          </section>
         </div>
       </div>
     </UserProvider>
