@@ -6,7 +6,7 @@ Développez un tableau de bord d'analytics avec React
 
 ## Mise en place de la partie back
 
-La partie utilise de préférence yarn, cependant, vous pouvez également le faire avec npm, ou passer par docker (pour cela je vous recommande de suivre le README.md du back).
+Cette partie utilise de préférence yarn, cependant, vous pouvez également le faire avec npm, ou passer par docker (pour cela je vous recommande de suivre le [README.md](./back/README.md#3-project-with-docker) du back).
 
 ### Avec yarn
 
