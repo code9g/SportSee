@@ -1,0 +1,14 @@
+{
+  "name": "sportsee",
+  "version": "1.0.0",
+  "description": "Projet 12 de la formation \"Développeur JavaScript / React\" de OpenClassRoom",
+  "scripts": {
+    "back": "cd back && yarn start",
+    "front": "cd front && npm run dev"
+  },
+  "author": {
+    "name": "Pierre HENRY",
+    "email": "pierre.henry@code99.fr"
+  },
+  "license": "ISC"
+}
