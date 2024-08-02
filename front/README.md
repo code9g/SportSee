@@ -82,3 +82,5 @@ ou
 ```
 npm run jsdoc
 ```
+
+La documentation est accessible [ici](https://code9g.github.io/SportSee/)
