@@ -4,9 +4,9 @@ import KeyMetrics from "./KeyMetrics";
 import NoData from "./NoData";
 
 /**
- * Composant pour afficher les métriques de l'utilisateur.
+ * Composant pour afficher les métriques de l'utilisateur dans une section.
  *
- * Ce composant affiche les données de session de l'utilisateur.
+ * Ce composant affiche les données des métriques de l'utilisateur
  *
  * @param {Object} props Les propriétés du composant.
  * @param {Object} props.user L'utilisateur pour lequel les données de performance sont affichées.
