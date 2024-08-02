@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/charts/AverageChart.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/charts/AverageChart.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import {
+  Line,
+  LineChart,
+  Rectangle,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+
+/**
+ * Objet représentant une donnée moyenne
+ *
+ * @typedef {Object} AverageDataObject
+ * @property {string} day Jour de la semaine
+ * @property {number} sessionLength Durée moyenne de la session
+ */
+
+/**
+ * Ce composant affiche les données de session en utilisant un graphique linéaire. La ligne représente
+ * la durée des sessions, avec des détails supplémentaires affichés dans un tooltip personnalisé lors
+ *  du survol de la ligne.
+ *
+ * @param {{data: Array.&lt;AverageDataObject>}} props Les propriétés du composant.
+ * @param {Array.&lt;AverageDataObject>} props.data Les données à afficher
+ * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
+ */
+function AverageChart({ data }) {
+  return (
+    &lt;ResponsiveContainer>
+      &lt;LineChart
+        data={data}
+        style={{ background: "#ff0101", borderRadius: "0.5rem" }}
+        margin={{ top: 70, right: 20, bottom: 10, left: 20 }}
+      >
+        &lt;defs>
+          &lt;linearGradient id="line-gradient">
+            &lt;stop offset="0%" stopColor="#ffffff" stopOpacity="30%" />
+            &lt;stop offset="100%" stopColor="#ffffff" stopOpacity="100%" />
+          &lt;/linearGradient>
+        &lt;/defs>
+        &lt;text
+          x="10%"
+          y="15%"
+          fontSize="1.5rem"
+          fontWeight={500}
+          width={100}
+          fill="#ffffff"
+          opacity={0.5}
+        >
+          Durée moyenne des
+          &lt;tspan x="10%" y="24%">
+            sessions
+          &lt;/tspan>
+        &lt;/text>
+        &lt;Line
+          type="natural"
+          dataKey="sessionLength"
+          dot={false}
+          stroke="url(#line-gradient)"
+          unit={"min"}
+          strokeWidth={2}
+          activeDot={{
+            stroke: "#ffffff",
+            strokeOpacity: "50%",
+            strokeWidth: 6,
+          }}
+        />
+        &lt;YAxis hide domain={["dataMin - 15", "dataMax + 10"]} />
+        &lt;XAxis
+          dataKey="day"
+          axisLine={false}
+          tickLine={false}
+          stroke="#ffffff"
+          opacity={0.5}
+          fontSize="1.2rem"
+          fontWeight={500}
+        />
+        &lt;Tooltip content={&lt;CustomTooltip />} cursor={&lt;AverageCustomCursor />} />
+      &lt;/LineChart>
+    &lt;/ResponsiveContainer>
+  );
+}
+
+/**
+ * Composant de tooltip personnalisé qui affiche une valeur avec l'unité "min"
+ * (minutes) lorsqu'un utilisateur survole un élément du graphique.
+ *
+ * @param {{payload: Array&lt;Object>, active: boolean}} props Les propriétés du composant.
+ * @param {Array&lt;Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
+ * @param {boolean} props.active Indique si le tooltip est actif (affiché).
+ *
+ * @returns {JSX.Element|null} Un élément `div` avec la valeur et l'unité "min" si `payload` contient des données, sinon `null`.
+ */
+function CustomTooltip({ payload, active }) {
+  if (active &amp;&amp; payload.length) {
+    return (
+      &lt;div className="tooltip">
+        &lt;p className="value">{payload[0].value} min&lt;/p>
+      &lt;/div>
+    );
+  }
+
+  return null;
+}
+
+/**
+ * Composant de curseur personnalisé
+ *
+ * @param {{points: Array&lt;Object>}} params
+ * @param {Array&lt;Object>} points Un tableau de points contenant les coordoonnées x et y.
+ * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.
+ */
+function AverageCustomCursor({ points }) {
+  return (
+    &lt;Rectangle
+      width={1000}
+      height={1000}
+      x={points[0].x}
+      y={0}
+      style={{ background: "black", opacity: 0.1 }}
+    />
+  );
+}
+
+CustomTooltip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool,
+};
+
+AverageCustomCursor.propTypes = {
+  points: PropTypes.array,
+};
+
+AverageChart.propTypes = {
+  data: PropTypes.array,
+};
+
+export default AverageChart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#ActivityCustomTooltip">ActivityCustomTooltip</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#AverageChart">AverageChart</a></li><li><a href="global.html#AverageCustomCursor">AverageCustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Developper">Developper</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyMetrics">KeyMetrics</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#NoData">NoData</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#NotYetImplemented">NotYetImplemented</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#PerformanceCustomTick">PerformanceCustomTick</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#URL_API">URL_API</a></li><li><a href="global.html#UserContext">UserContext</a></li><li><a href="global.html#UserProvider">UserProvider</a></li><li><a href="global.html#activityUnits">activityUnits</a></li><li><a href="global.html#dayOfWeek">dayOfWeek</a></li><li><a href="global.html#fetchApi">fetchApi</a></li><li><a href="global.html#fetchUserActivityApi">fetchUserActivityApi</a></li><li><a href="global.html#fetchUserApi">fetchUserApi</a></li><li><a href="global.html#fetchUserAverageSessionsApi">fetchUserAverageSessionsApi</a></li><li><a href="global.html#fetchUserPerformanceApi">fetchUserPerformanceApi</a></li><li><a href="global.html#headerLinks">headerLinks</a></li><li><a href="global.html#kinds">kinds</a></li><li><a href="global.html#metrics">metrics</a></li><li><a href="global.html#sections">sections</a></li><li><a href="global.html#sideBarLinks">sideBarLinks</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUser">useUser</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Aug 03 2024 00:33:28 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
