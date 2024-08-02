@@ -1,9 +1,25 @@
 import { useEffect, useState } from "react";
 
 /**
- * Hook de gestion du fetch des données
+ * L'objet retournée par la fonction useFetch
  *
- * Ce hook permet de gérer le chargement, les erreurs et les données à récupèrer :
+ * @typedef {Object} UseFetchObject
+ * @property {any} data
+ *    Les Les données récupérées ou la valeur par défaut
+ * @property {boolean} isLoading
+ *    Indicateur de chargement en cours
+ * @property {boolean} isAborted
+ *    Indicateur d'annulation du chargement (est déclenché lorsque le
+ *    composant est démonté, c'est souvent le cas avec le strict mode,
+ *    qui effectue deux montage du composant)
+ * @property {?string} error
+ *    Contient le message d'erreur ou null si il n'y pas eu d'erreur
+ */
+
+/**
+ * Hook de gestion du fetch des données en gérant le chargement, les erreurs
+ * et les données à récupèrer :
+ *
  *   - data      : Les données récupérées ou la valeur par défaut
  *   - isLoading : Indicateur de chargement en cours
  *   - isAborted : Indicateur d'annulation du chargement (est déclenché lorsque le
@@ -11,11 +27,11 @@ import { useEffect, useState } from "react";
  *                 qui effectue deux montage du composant)
  *   - error : Contient le message d'erreur ou null
  *
- * @param {number} id L'identifiant de l'utilisateur
- * @param {function} fetcher L'API a utiliser pour récupèrer les données (async)
+ * @param {number} id Identifiant de l'utilisateur
+ * @param {function} fetcher Fonction asynchrone pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
- * @param {*} defaultData Données par défaut
- * @returns {{data: *; isLoading: boolean; isAborted: boolean; isAborted: boolean; error: ?string}} Un objet contenant isLoading, error et data
+ * @param {*} defaultData Données à utiliser par défaut
+ * @returns {UseFetchObject} Un objet
  */
 function useFetch(id, fetcher, title, defaultData) {
   const [data, setData] = useState(defaultData);

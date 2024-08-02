@@ -11,9 +11,6 @@ import PerformanceChart from "./charts/PerformanceChart";
  * Composant pour charger les données et afficher les performances de l'utilisateur sous forme de
  * graphique radar.
  *
- * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
- * un graphique radar.
- *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
  * @returns {JSX.Element} Un élément JSX contenant le graphique radar.

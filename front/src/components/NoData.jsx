@@ -1,11 +1,9 @@
 import PropTypes from "prop-types";
 
 /**
- * Composant de donnée absente.
+ * Composant affiche un message indiquant l'absence de donnée.
  *
- * Ce composant affiche un message indiqué l'absence de donnée.
- *
- * @param {Object} props Les propriétés du composant.
+ * @param {{message: string}} props Les propriétés du composant.
  * @param {string} [props.message="Pas de donnée"] Le message
  * @returns {JSX.Element} Un élément `div` avec le message.
  */

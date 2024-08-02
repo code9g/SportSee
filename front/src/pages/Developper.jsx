@@ -3,11 +3,8 @@ import Error from "../components/Error";
 import Profil from "./Profil";
 
 /**
- * Composant pour afficher la page de profil d'un utilisateur via sa route pour le développeur.
- *
- * Ce composant récupère la route dont le développeur veut afficher les données d'un utilisateur.
- * Note: Ce composant n'est là que pour permettre au développeur d'observer le rendu des différents
- *       utilisateurs via la route /user/:id
+ * Composant pour afficher la page de profil d'un utilisateur via la route /user:id pour vérifier
+ * le profil d'un autre utilisateur par le développeur ou le testeur.
  *
  * @returns {JSX.Element}
  */

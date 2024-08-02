@@ -3,12 +3,10 @@ import PropTypes from "prop-types";
 /**
  * Composant pour afficher une métrique de l'utilisateur.
  *
- * Ce composant affiche une métrique de l'utilisateur.
- *
- * @param {Object} props Les propriétés du composant.
+ * @param {{label: string, value: number, icon: any, unit: string}} props Les propriétés du composant.
  * @param {string} props.label L'intitulé de la métrique.
  * @param {number} props.value La valeur de la métrique
- * @param {*} props.icon L'icône de la métrique
+ * @param {any} props.icon L'icône de la métrique
  * @param {string} props.unit L'unité de la métrique
  * @returns {JSX.Element} Un élément JSX contenant la métrique.
  */

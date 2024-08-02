@@ -12,14 +12,22 @@ import {
 import { activityUnits } from "../../utils/consts";
 
 /**
- * Composant pour afficher l'activité quotidienne de l'utilisateur sous forme de graphique à barres.
+ * Objet représentant les données d'une activité (kg et kCal)
  *
+ * @typedef {Object} ActivityDataObject
+ * @property {number} kilogram Le poids en kg
+ * @property {number} calories Les calories en kCal
+ * @property {number} day L'indice du jour
+ */
+
+/**
  * Ce composant affiche les données d'activité sous forme de graphique à barres.
  * Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
- * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
+ * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires
+ * lors du survol des barres.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Number} props.data Les données d'activité à afficher.
+ * @param {{data: Array.<ActivityDataObject>}} props Les propriétés du composant.
+ * @param {Array.<ActivityDataObject>} props.data Les données d'activité à afficher.
  * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
  */
 function ActivityChart({ data }) {
@@ -70,7 +78,7 @@ function ActivityChart({ data }) {
           domain={["dataMin - 50", "auto"]}
           dx={-16}
         />
-        <Tooltip content={CustomTooltip} />
+        <Tooltip content={ActivityCustomTooltip} />
         <Legend
           layout="horizontal"
           verticalAlign="top"
@@ -104,17 +112,16 @@ function ActivityChart({ data }) {
 }
 
 /**
- * Composant de tooltip personnalisé pour afficher des informations sur une activité.
+ * Ce composant affiche des informations contextuelles dans un tooltip lorsque la
+ * souris est sur un élément du graphique. Il gère les unités pour différents types
+ * de données (poids, calories, etc.).
  *
- * Ce composant affiche des informations contextuelles dans un tooltip lorsque la souris est sur un élément du graphique.
- * Il gère les unités pour différents types de données (poids, calories, etc.).
- *
- * @param {Object} props Les propriétés du composant.
+ * @param {{payload: Array.<Object>}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
- * @param {Boolean} props.active Indique si le tooltip est actif (affiché).
+ * @param {boolean} props.active Indique si le tooltip est actif (affiché).
  * @returns {JSX.Element|null} Un élément `div` avec les informations du tooltip si `active` est vrai et `payload` contient des données, sinon `null`.
  */
-function CustomTooltip({ payload, active }) {
+function ActivityCustomTooltip({ payload, active }) {
   if (active) {
     return (
       <div className="tooltip">
@@ -131,7 +138,7 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
-CustomTooltip.propTypes = {
+ActivityCustomTooltip.propTypes = {
   payload: PropTypes.array,
   active: PropTypes.bool,
 };

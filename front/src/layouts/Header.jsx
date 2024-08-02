@@ -2,9 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo-full.svg";
 
 /**
+ * Objet de définition d'un lien de la barre de navigation (en-tête)
+ *
+ * @typedef {Object} HeaderLinkObject
+ * @property {string} title Titre du lien
+ * @property {string} to Route/Chemin du lien
+ */
+
+/**
  * Liste des liens de navigation et de leur route
  *
- * @type {Array<Object.{title: string, to: string}>}
+ * @type {Array<HeaderLinkObject>}
  */
 const headerLinks = [
   { title: "Accueil", to: "/home" },
@@ -14,13 +22,12 @@ const headerLinks = [
 ];
 
 /**
- * Function permettant de définir les classes à utiliser pour le NavLink
- *
- * Se base sur les valeurs de isActive et isPending afin de déterminer quelles classes
+ * Fonction permettant de définir les classes à utiliser pour le NavLink,
+ * se base sur les valeurs de isActive et isPending afin de déterminer quelles classes
  * sont à retourner, sachant que la classe nav-link sera systématiquement incluse.
  *
- * @param {{ isActive: boolean; isPending: boolean; }} params
- * @param {boolean} params.isActive
+ * @param {{ isActive: boolean, isPending: boolean }} params
+ * @param {boolean} params.isActive Toto
  * @param {boolean} params.isPending
  * @returns {string} Liste des classes séparées par un espace
  */
@@ -29,6 +36,7 @@ const state = ({ isActive, isPending }) =>
 
 /**
  * Composant pour afficher l'en-tête du dashboard
+ *
  * @returns {JSX.Element} Un élément JSX contenant l'en-tête
  */
 function Header() {

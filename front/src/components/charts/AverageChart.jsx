@@ -10,14 +10,20 @@ import {
 } from "recharts";
 
 /**
- * Composant pour afficher la durée moyenne des sessions de l'utilisateur sous forme de graphique linéaire.
+ * Objet représentant une donnée moyenne
  *
+ * @typedef {Object} AverageDataObject
+ * @property {string} day Jour de la semaine
+ * @property {number} sessionLength Durée moyenne de la session
+ */
+
+/**
  * Ce composant affiche les données de session en utilisant un graphique linéaire. La ligne représente
  * la durée des sessions, avec des détails supplémentaires affichés dans un tooltip personnalisé lors
  *  du survol de la ligne.
  *
- * @param {Object} props Les propriétés du composant.
- * @param {Array} props.data Les données à afficher
+ * @param {{data: Array.<AverageDataObject>}} props Les propriétés du composant.
+ * @param {Array.<AverageDataObject>} props.data Les données à afficher
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageChart({ data }) {
@@ -71,18 +77,17 @@ function AverageChart({ data }) {
           fontSize="1.2rem"
           fontWeight={500}
         />
-        <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
+        <Tooltip content={<CustomTooltip />} cursor={<AverageCustomCursor />} />
       </LineChart>
     </ResponsiveContainer>
   );
 }
 
 /**
- * Composant de tooltip personnalisé pour afficher la durée moyenne d'une session.
+ * Composant de tooltip personnalisé qui affiche une valeur avec l'unité "min"
+ * (minutes) lorsqu'un utilisateur survole un élément du graphique.
  *
- * Ce composant affiche une valeur avec l'unité "min" (minutes) lorsqu'un utilisateur survole un élément du graphique.
- *
- * @param {Object} props Les propriétés du composant.
+ * @param {{payload: Array<Object>, active: boolean}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).
  *
@@ -103,10 +108,11 @@ function CustomTooltip({ payload, active }) {
 /**
  * Composant de curseur personnalisé
  *
+ * @param {{points: Array<Object>}} params
  * @param {Array<Object>} points Un tableau de points contenant les coordoonnées x et y.
  * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.
  */
-function CustomCursor({ points }) {
+function AverageCustomCursor({ points }) {
   return (
     <Rectangle
       width={1000}
@@ -123,7 +129,7 @@ CustomTooltip.propTypes = {
   active: PropTypes.bool,
 };
 
-CustomCursor.propTypes = {
+AverageCustomCursor.propTypes = {
   points: PropTypes.array,
 };
 

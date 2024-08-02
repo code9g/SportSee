@@ -1,14 +1,12 @@
 import fetchApi from "./fetchApi";
 
 /**
- * Fonction API permettant de récuperer des données sur la performance d'un
- * utilisateur
- *
- * Cette fonction permet de récupérer les données sur la performance d'un
- * utilisateur en fonction de son identifiant
+ * Fonction asynchrone permettant de récuperer des données sur la performance
+ * d'un utilisateur en fonction de son identifiant (userId)
  *
  * @async
- * @param {number} userId Identifiant de l'utilisateu
+ * @param {number} userId Identifiant de l'utilisateur
+ * @param {Array} args Liste des arguments à inclure dans l'appel de l'api
  * @returns {Promesse} Retourne une promesse
  */
 const fetchUserPerformanceApi = async (userId, ...args) =>

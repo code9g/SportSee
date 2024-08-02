@@ -1,5 +1,5 @@
 /**
- * Composant pour afficher que la fonctionnalité n'a pas encore été implémenté
+ * Composant pour afficher que la fonctionnalité n'a pas encore été implémentée
  *
  * @returns {JSX.Element}
  */

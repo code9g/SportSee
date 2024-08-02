@@ -4,7 +4,7 @@ import lipidIcon from "../assets/icons/lipid.svg";
 import proteinIcon from "../assets/icons/protein.svg";
 
 /**
- * Constante content l'url vers le service API REST
+ * Constante contenant l'url vers le service API REST
  *
  * @type {string}
  */
@@ -35,12 +35,22 @@ export const dayOfWeek = {
 };
 
 /**
+ * Objet définisant une métrique
+ *
+ * @typedef {Object} MetricObject
+ * @property {string} label Libellé de la métrique
+ * @property {string} unit Unité de la métrique
+ * @property {any} icon Ressource représentant l'icône
+ * @property {string} key La clé à utiliser pour accéder à la métrique
+ */
+
+/**
  * Tableau d'objets décrivant les propriétés métriques.
  * Chaque objet mappe un libellé lisible à une clé technique utilisée dans un objet de données.
  *
- * @type {Array<Object>}
+ * @type {Array<MetricObject>}
  **/
-export const keys = [
+export const metrics = [
   { label: "Calories", unit: "kCal", icon: calorieIcon, key: "calorieCount" },
   { label: "Proteines", unit: "g", icon: proteinIcon, key: "proteinCount" },
   {

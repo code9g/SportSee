@@ -2,9 +2,9 @@ import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 
 /**
- * Hook de gestion du contexte UserContext
+ * Hook de retournant le contexte UserContext
  *
- * @returns {React.Context}
+ * @returns {React.Context} Retourne le contexte de UserContext
  */
 const useUser = () => useContext(UserContext);
 

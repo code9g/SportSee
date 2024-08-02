@@ -11,10 +11,6 @@ import AverageChart from "./charts/AverageChart";
  * Composant pour charger les données et afficher la durée moyenne des sessions de l'utilisateur
  * sous forme de graphique linéaire.
  *
- * Ce composant récupère les données de session pour un utilisateur spécifique et les affiche en utilisant
- * un graphique linéaire. La ligne représente la durée des sessions, avec des détails supplémentaires affichés
- * dans un tooltip personnalisé lors du survol de la ligne.
- *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.

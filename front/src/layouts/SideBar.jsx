@@ -5,9 +5,18 @@ import weightLiftingIcon from "../assets/icons/weightlifting.svg";
 import zenIcon from "../assets/icons/zen.svg";
 
 /**
+ * Objet décrivant le "feature" dans la barre latèrale
+ *
+ * @typedef {Object} SideBarLinkObject
+ * @property {any} icon Content la ressource définisant l'icône à afficher
+ * @property {string} alt Le texte alternatif de l'icône
+ * @property {string} to La chemin de la feature
+ */
+
+/**
  * Tableau des fonctionnalités (features) dans la barre latèrale
  *
- * @type {Array<Object.{icon: any, alt: string, to: string}>}
+ * @type {Array.<SideBarLinkObject>}
  */
 const sideBarLinks = [
   { icon: zenIcon, alt: "", to: "#zen" },

@@ -12,11 +12,32 @@ import UserProvider from "../providers/UserProvider";
 import fetchUserApi from "../services/fetchUserApi";
 
 /**
- * Composant pour afficher la page de profil d'un utilisateur.
+ * Objet définisant une section
  *
- * Ce composant récupère les données d'un utilisateur spécifique et affiche les informations et les graphiques.
+ * @typedef {Object} SectionObject
+ * @property {string} name Préfixe à utiliser pour définir la classe de la section (*-section)
+ * @property {JSX.Element} element L'élément JSX à placer dans la section
+ */
+
+/**
+ * Tableau pour générer les sections à afficher
  *
- * @param {Object} props Les propriétés du composant.
+ * @type {Array.<SectionObject>}
+ */
+const sections = [
+  { name: "metrics", element: <KeyMetrics /> },
+  { name: "activity", element: <Activity /> },
+  { name: "average", element: <Average /> },
+  { name: "performance", element: <Performance /> },
+  { name: "score", element: <Score /> },
+];
+
+/**
+ * Composant pour afficher la page de profil d'un utilisateur en récupérant ses données
+ * par le biais de son identifiant (id) et afficher les informations et les graphiques
+ * le concernant
+ *
+ * @param {{id: number}} props Les propriétés du composant.
  * @param {number} props.id Id de l'utilisateur.
  * @returns {JSX.Element} Un élément JSX contenant la page de profil.
  */
@@ -39,14 +60,6 @@ function Profil({ id }) {
   if (!user) {
     return <NoData />;
   }
-
-  const sections = [
-    { name: "metrics", element: <KeyMetrics /> },
-    { name: "activity", element: <Activity /> },
-    { name: "average", element: <Average /> },
-    { name: "performance", element: <Performance /> },
-    { name: "score", element: <Score /> },
-  ];
 
   return (
     <UserProvider user={user}>

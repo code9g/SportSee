@@ -7,9 +7,6 @@ import NoData from "./NoData";
 import ActivityChart from "./charts/ActivityChart";
 
 /**
- * Composant pour charger les données et afficher l'activité quotidienne de l'utilisateur sous forme
- * de graphique à barres.
- *
  * Ce composant récupère les données d'activité pour un utilisateur spécifique et les affiche en utilisant
  * un graphique à barres. Les barres représentent le poids (kg) et les calories brûlées (kCal) avec des
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
