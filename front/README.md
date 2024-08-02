@@ -84,3 +84,5 @@ npm run jsdoc
 ```
 
 La documentation est accessible [ici](https://code9g.github.io/SportSee/)
+
+Note : La documentation sera généré à la racine du projet, afin de faciliter l'affichage via la page github.
