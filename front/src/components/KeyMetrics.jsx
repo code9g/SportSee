@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
-import KeyMetrics from "./KeyMetrics";
+import { keys } from "../utils/consts";
+import KeyMetric from "./KeyMetric";
 import NoData from "./NoData";
 
 /**
@@ -12,20 +13,28 @@ import NoData from "./NoData";
  * @param {Object} props.user L'utilisateur pour lequel les données de performance sont affichées.
  * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
-function KeyMetricsSection({ user }) {
+function KeyMetrics({ user }) {
   if (!user.keyData) {
     return <NoData />;
   }
 
   return (
-    <section className="metrics">
-      <KeyMetrics user={user} />
-    </section>
+    <>
+      {keys.map(({ key, label, icon, unit }, index) => (
+        <KeyMetric
+          key={index}
+          label={label}
+          icon={icon}
+          unit={unit}
+          value={user.keyData[key]}
+        />
+      ))}
+    </>
   );
 }
 
-KeyMetricsSection.propTypes = {
+KeyMetrics.propTypes = {
   user: PropTypes.object.isRequired,
 };
 
-export default KeyMetricsSection;
+export default KeyMetrics;

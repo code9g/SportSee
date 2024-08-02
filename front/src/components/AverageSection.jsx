@@ -6,7 +6,7 @@ import Average from "./Average";
  * dans une section.
  *
  * @param {Object} props Les propriétés du composant.
- * @param {number} props.user L'utilisateur pour lequel les données de session sont récupérées.
+ * @param {Object} props.user L'utilisateur pour lequel les données de session sont récupérées.
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageSection({ user }) {

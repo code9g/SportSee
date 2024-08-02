@@ -7,7 +7,7 @@ import Activity from "./Activity";
  * dans une section
  *
  * @param {Object} props Les propriétés du composant.
- * @param {Number} props.user L'utilisateur dont les données d'activité sont récupérées.
+ * @param {Object} props.user L'utilisateur dont les données d'activité sont récupérées.
  * @returns {JSX.Element} Un élément JSX contenant la section et le graphique à barres.
  */
 function ActivitySection({ user }) {

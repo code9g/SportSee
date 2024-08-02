@@ -16,7 +16,7 @@ import ActivityChart from "./charts/ActivityChart";
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires lors du survol des barres.
  *
  * @param {Object} props Les propriétés du composant.
- * @param {Number} props.user L'utilisateur pour les données d'activité sont récupérées.
+ * @param {Object} props.user L'utilisateur pour les données d'activité sont récupérées.
  * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
  */
 function Activity({ user }) {
