@@ -52,11 +52,11 @@ function Profil({ id }) {
           </p>
         </div>
         <div className="charts">
-          <KeyMetricsSection user={user} />
-          <ActivitySection user={user} />
-          <AverageSection user={user} />
-          <PerformanceSection user={user} />
-          <ScoreSection user={user} />
+          <KeyMetricsSection />
+          <ActivitySection />
+          <AverageSection />
+          <PerformanceSection />
+          <ScoreSection />
         </div>
       </div>
     </UserProvider>
