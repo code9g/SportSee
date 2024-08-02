@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
  * Ce hook permet de gérer le chargement, les erreurs et les données à récupèrer
  *
  * @param {number} id L'identifiant de l'utilisateur
- * @param {function} fetchApi L'API a utiliser pour récupèrer les données (async)
+ * @param {function} fetcher L'API a utiliser pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
  * @param {*} defaultData Données par défaut
  * @returns {{data: *, isLoading: boolean, error: ?string}} Un objet contenant isLoading, error et data
  */
-function useFetch(id, fetchApi, title, defaultData) {
+function useFetch(id, fetcher, title, defaultData) {
   const [data, setData] = useState(defaultData);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,7 +19,7 @@ function useFetch(id, fetchApi, title, defaultData) {
   useEffect(() => {
     const abortController = new AbortController();
     setIsLoading(true);
-    fetchApi(id, { signal: abortController.signal })
+    fetcher(id, { signal: abortController.signal })
       .then((data) => {
         setData(data);
         setError(null);
@@ -40,7 +40,7 @@ function useFetch(id, fetchApi, title, defaultData) {
     return () => {
       abortController.abort();
     };
-  }, [id, title, fetchApi]);
+  }, [id, title, fetcher]);
 
   return { data, isLoading, error };
 }
