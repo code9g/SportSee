@@ -24,11 +24,12 @@ function Average() {
 
   const {
     isLoading,
+    isAborted,
     error,
     data: average,
   } = useFetch(user.id, fetchUserAverageSessionsApi, "average-sessions", []);
 
-  if (isLoading) {
+  if (isLoading || isAborted) {
     return <Loading />;
   }
 

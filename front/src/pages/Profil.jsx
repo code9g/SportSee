@@ -23,11 +23,12 @@ import fetchUserApi from "../services/fetchUserApi";
 function Profil({ id }) {
   const {
     isLoading,
+    isAborted,
     error,
     data: user,
   } = useFetch(id, fetchUserApi, "user", null);
 
-  if (isLoading) {
+  if (isLoading || isAborted) {
     return <Loading />;
   }
 

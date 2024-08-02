@@ -23,11 +23,12 @@ function Activity() {
 
   const {
     isLoading,
+    isAborted,
     error,
     data: activity,
   } = useFetch(user.id, fetchUserActivityApi, "activity", []);
 
-  if (isLoading) {
+  if (isLoading || isAborted) {
     return <Loading />;
   }
 

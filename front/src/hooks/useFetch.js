@@ -9,11 +9,12 @@ import { useEffect, useState } from "react";
  * @param {function} fetcher L'API a utiliser pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
  * @param {*} defaultData Données par défaut
- * @returns {{data: *, isLoading: boolean, error: ?string}} Un objet contenant isLoading, error et data
+ * @returns {{data: *; isLoading: boolean; isAborted: boolean; error: ?string}} Un objet contenant isLoading, error et data
  */
 function useFetch(id, fetcher, title, defaultData) {
   const [data, setData] = useState(defaultData);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAborted, setIsAborted] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,12 +24,14 @@ function useFetch(id, fetcher, title, defaultData) {
       .then((data) => {
         setData(data);
         setError(null);
+        setIsAborted(false);
         console.log(`Données '${title}':`, data);
       })
       .catch((e) => {
         if (e instanceof DOMException && e.name === "AbortError") {
           setError(`Annulation du chargement des données '${title}' !`);
           console.warn(`Annulation du chargement des données '${title}' !`);
+          setIsAborted(true);
         } else {
           setError(`Echec de chargement des données '${title}' !`);
           console.error(e);
@@ -42,7 +45,7 @@ function useFetch(id, fetcher, title, defaultData) {
     };
   }, [id, title, fetcher]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, isAborted, error };
 }
 
 export default useFetch;

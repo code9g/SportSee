@@ -23,11 +23,12 @@ function Performance() {
 
   const {
     isLoading,
+    isAborted,
     error,
     data: performance,
   } = useFetch(user.id, fetchUserPerformanceApi, "performance", []);
 
-  if (isLoading) {
+  if (isLoading || isAborted) {
     return <Loading />;
   }
 
