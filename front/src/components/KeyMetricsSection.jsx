@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 
-import useUser from "../hooks/useUser";
 import KeyMetrics from "./KeyMetrics";
-import NoData from "./NoData";
 
 /**
  * Composant pour afficher les métriques de l'utilisateur dans une section.
@@ -12,15 +10,9 @@ import NoData from "./NoData";
  * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
 function KeyMetricsSection() {
-  const { user } = useUser();
-
-  if (!user.keyData) {
-    return <NoData />;
-  }
-
   return (
     <section className="metrics">
-      <KeyMetrics user={user} />
+      <KeyMetrics />
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import useUser from "../hooks/useUser";
 import Average from "./Average";
 
 /**
@@ -10,11 +9,9 @@ import Average from "./Average";
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function AverageSection() {
-  const { user } = useUser();
-
   return (
     <section className="average">
-      <Average user={user} />
+      <Average />
     </section>
   );
 }

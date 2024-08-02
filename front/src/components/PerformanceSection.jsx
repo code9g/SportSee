@@ -1,4 +1,3 @@
-import useUser from "../hooks/useUser";
 import Performance from "./Performance";
 
 /**
@@ -10,11 +9,9 @@ import Performance from "./Performance";
  * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
  */
 function PerformanceSection() {
-  const { user } = useUser();
-
   return (
     <section className="performance">
-      <Performance user={user} />
+      <Performance />
     </section>
   );
 }

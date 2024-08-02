@@ -1,4 +1,3 @@
-import useUser from "../hooks/useUser";
 import Score from "./Score";
 
 /**
@@ -10,11 +9,9 @@ import Score from "./Score";
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
 function ScoreSection() {
-  const { user } = useUser();
-
   return (
     <section className="score">
-      <Score user={user} />
+      <Score />
     </section>
   );
 }
