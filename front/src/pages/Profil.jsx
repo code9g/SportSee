@@ -37,6 +37,7 @@ const sections = [
  * par le biais de son identifiant (id) et afficher les informations et les graphiques
  * le concernant
  *
+ * @component
  * @param {{id: number}} props Les propriétés du composant.
  * @param {number} props.id Id de l'utilisateur.
  * @returns {JSX.Element} Un élément JSX contenant la page de profil.

@@ -1,6 +1,7 @@
 /**
  * Composant pour afficher que la fonctionnalité n'a pas encore été implémentée
  *
+ * @component
  * @returns {JSX.Element}
  */
 function NotYetImplemented() {

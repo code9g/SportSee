@@ -6,6 +6,7 @@ import Profil from "./Profil";
  * Composant pour afficher la page de profil d'un utilisateur via la route /user:id pour vérifier
  * le profil d'un autre utilisateur par le développeur ou le testeur.
  *
+ * @component
  * @returns {JSX.Element}
  */
 function Developper() {

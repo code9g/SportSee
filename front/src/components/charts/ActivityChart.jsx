@@ -26,6 +26,7 @@ import { activityUnits } from "../../utils/consts";
  * couleurs distinctes. Un tooltip personnalisé affiche des détails supplémentaires
  * lors du survol des barres.
  *
+ * @component
  * @param {{data: Array.<ActivityDataObject>}} props Les propriétés du composant.
  * @param {Array.<ActivityDataObject>} props.data Les données d'activité à afficher.
  * @returns {JSX.Element} Un élément JSX contenant le graphique à barres et les icônes associées.
@@ -117,6 +118,7 @@ function ActivityChart({ data }) {
  * de données (poids, calories, etc.).
  *
  * @private
+ * @component
  * @param {{payload: Array.<Object>}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).

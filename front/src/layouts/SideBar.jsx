@@ -30,6 +30,7 @@ const sideBarLinks = [
 /**
  * Composant pour afficher la barre latérale (features).
  *
+ * @component
  * @returns {JSX.Element} Le composant affichant la barre latérale.
  */
 function SideBar() {

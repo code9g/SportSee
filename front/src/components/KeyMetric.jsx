@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 /**
  * Composant pour afficher une métrique de l'utilisateur.
  *
+ * @component
  * @param {{label: string, value: number, icon: any, unit: string}} props Les propriétés du composant.
  * @param {string} props.label L'intitulé de la métrique.
  * @param {number} props.value La valeur de la métrique
@@ -10,7 +11,7 @@ import PropTypes from "prop-types";
  * @param {string} props.unit L'unité de la métrique
  * @returns {JSX.Element} Un élément JSX contenant la métrique.
  */
-export default function KeyMetric({ label, value, icon, unit }) {
+function KeyMetric({ label, value, icon, unit }) {
   return (
     <article className="category">
       <img className="icon" src={icon} alt={`Icone de ${label}`} />
@@ -31,3 +32,5 @@ KeyMetric.propTypes = {
   icon: PropTypes.any,
   unit: PropTypes.string,
 };
+
+export default KeyMetric;

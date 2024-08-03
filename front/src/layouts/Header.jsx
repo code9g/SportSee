@@ -40,6 +40,7 @@ const classNavLink = ({ isActive, isPending }) =>
 /**
  * Composant pour afficher l'en-tête du dashboard
  *
+ * @component
  * @returns {JSX.Element} Un élément JSX contenant l'en-tête
  */
 function Header() {

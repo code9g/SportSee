@@ -8,6 +8,7 @@ import NoData from "./NoData";
  *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
+ * @component
  * @returns {JSX.Element} Un élément JSX contenant les métriques.
  */
 function KeyMetrics() {

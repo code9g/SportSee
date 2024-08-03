@@ -19,6 +19,7 @@ import {
 /**
  * Composant pour afficher les performances de l'utilisateur sous forme de graphique radar.
  *
+ * @component
  * @param {{data: Array.<PerformanceDataObject>}} props Les propriétés du composant.
  * @param {Array.<PerformanceDataObject>} props.data Les données de performance à afficher.
  * @returns {JSX.Element} - Un élément JSX contenant le graphique radar.
@@ -47,6 +48,7 @@ function PerformanceChart({ data }) {
  * type (kind) dans <Text>, permettant d'espacer le texte du radar
  *
  * @private
+ * @component
  * @param {{payload: Array<Object>, x: number, y: number, cx: number, cy: number}} props Les propriétés du composant.
  * @param {{value: string}} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
  * @param {string} props.payload.value L'intitulé du tooltip

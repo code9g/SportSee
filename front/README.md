@@ -58,31 +58,3 @@ utilisateur n'existe pas.
 ## Notes
 
 Seule la page "profil" a été développée, ainsi que la route /user/:id qui ne fait que reconduire sur la page "profil" avec l'identifiant souhaité.
-
-## Documentation
-
-La documentation a été réalisé en utilisant la syntaxe de jsdoc, permettant à la fois d'être directement lisible par Visual Studio Code,
-qui affiche un tooltip lorsque la souris passe sur un élément avec une documentation jsdoc, mais également de générer "automatiquement"
-un document html.
-
-Pour générer la documentation html, il faut que jsdoc soit installé (de préférence en global) avec :
-
-```
-npm install -g jsdoc
-```
-
-Puis de lancer la commande :
-
-```
-jsdoc ./src -r -d ../docs
-```
-
-ou
-
-```
-npm run jsdoc
-```
-
-La documentation est accessible [ici](https://code9g.github.io/SportSee/)
-
-Note : La documentation sera généré à la racine du projet, afin de faciliter l'affichage via la page github.

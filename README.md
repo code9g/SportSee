@@ -72,3 +72,26 @@ et
 ```
 npm run front
 ```
+
+## Documentation
+
+La documentation a été réalisé en utilisant la syntaxe de jsdoc, permettant à la fois d'être directement lisible par Visual Studio Code,
+qui affiche un tooltip lorsque la souris passe sur un élément avec une documentation jsdoc, mais également de générer "automatiquement"
+un document html.
+
+Pour générer la documentation html, il faut que jsdoc et better-docs soit installé (de préférence en global) avec :
+
+```
+npm install -g jsdoc
+npm install -g better-docs
+```
+
+Puis de lancer la commande :
+
+```
+npm run docs
+```
+
+La documentation est accessible [ici](https://code9g.github.io/SportSee/)
+
+Note : La documentation sera généré à la racine du projet, afin de faciliter l'affichage via la page github.

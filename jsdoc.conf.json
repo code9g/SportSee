@@ -1,0 +1,30 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc",
+      "closure"
+    ]
+  },
+  "source": {
+    "include": [
+      "./front/src"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "better-docs/component"
+  ],
+  "templates": {
+    "better-docs": {
+      "name": "SportSee"
+    }
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "readme": "README.md"
+  }
+}

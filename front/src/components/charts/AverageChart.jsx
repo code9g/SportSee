@@ -12,6 +12,7 @@ import {
 /**
  * Objet représentant une donnée moyenne
  *
+ * @private
  * @typedef {Object} AverageDataObject
  * @property {string} day Jour de la semaine
  * @property {number} sessionLength Durée moyenne de la session
@@ -22,6 +23,7 @@ import {
  * la durée des sessions, avec des détails supplémentaires affichés dans un tooltip personnalisé lors
  *  du survol de la ligne.
  *
+ * @component
  * @param {{data: Array.<AverageDataObject>}} props Les propriétés du composant.
  * @param {Array.<AverageDataObject>} props.data Les données à afficher
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
@@ -91,6 +93,7 @@ function AverageChart({ data }) {
  * (minutes) lorsqu'un utilisateur survole un élément du graphique.
  *
  * @private
+ * @component
  * @param {{payload: Array<Object>, active: boolean}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).
@@ -113,6 +116,7 @@ function AverageCustomTooltip({ payload, active }) {
  * Composant de curseur personnalisé
  *
  * @private
+ * @component
  * @param {{points: Array<Object>}} params
  * @param {Array<Object>} points Un tableau de points contenant les coordoonnées x et y.
  * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.

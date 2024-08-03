@@ -5,6 +5,7 @@ import UserContext from "../contexts/UserContext";
  * Composant de mise en place d'un provider du contexte UserContext,
  * afin de "partager" les données d'un utilisateur, en évitant le "props drilling"
  *
+ * @component
  * @param {{ user: Object, children: any }} props
  * @param {Object} props.user
  * @param {any} props.children

@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 /**
  * Composant pour afficher le 'layout' qui est l'affichage principal.
  *
+ * @component
  * @returns {JSX.Element}
  */
 function Layout() {

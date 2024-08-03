@@ -13,6 +13,7 @@ import AverageChart from "./charts/AverageChart";
  *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
+ * @component
  * @returns {JSX.Element} Un élément JSX contenant le graphique linéaire et le titre associé.
  */
 function Average() {

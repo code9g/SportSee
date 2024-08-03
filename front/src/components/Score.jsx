@@ -7,6 +7,7 @@ import ScoreChart from "./charts/ScoreChart";
  *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
+ * @component
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.
  */
 function Score() {

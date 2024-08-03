@@ -4,6 +4,7 @@ import { RadialBar, RadialBarChart, ResponsiveContainer } from "recharts";
 /**
  * Composant pour afficher le score sous forme de graphique radial.
  *
+ * @component
  * @param {{score: number}} props Les propriétés du composant.
  * @param {number} props.score Le score à afficher.
  * @returns {JSX.Element} Le composant affichant le score radial de l'utilisateur.

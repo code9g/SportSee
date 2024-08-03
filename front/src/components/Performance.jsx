@@ -13,6 +13,7 @@ import PerformanceChart from "./charts/PerformanceChart";
  *
  * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
  *
+ * @component
  * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
  */
 function Performance() {
