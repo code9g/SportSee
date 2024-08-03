@@ -46,7 +46,7 @@ npm run dev
 
 Cliquez sur "Profil" pour arriver sur le profil d'un utilisateur choisi arbirtrairement par mes soins.
 
-Sinon, et ce uniquement afin de tester différents utilisateurs disponibles, vous pouvez également y accéder en allant sur /user/:id, avec :id commet identifiant de l'utilisateur.
+Sinon, et ce uniquement afin de tester différents utilisateurs disponibles, vous pouvez également y accéder en allant sur /user/:id, avec :id comme identifiant de l'utilisateur.
 
 Cependant, à ce jour, il n'y a que deux utilisateurs, Karl (Id: 12) et Cécilia (Id: 18).
 
