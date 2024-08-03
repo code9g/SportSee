@@ -6,7 +6,10 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![recharts](https://img.shields.io/badge/recharts-22b5bf?style=for-the-badge)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![JSdoc](https://img.shields.io/badge/jsdoc-006fbb?style=for-the-badge)
+![BetterDocs](https://img.shields.io/badge/better--docs-008b64?style=for-the-badge)
 
 Projet 12 de la formation "Développeur JavaScript / React" de OpenClassRoom
 
