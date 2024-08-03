@@ -7,6 +7,7 @@ import zenIcon from "../assets/icons/zen.svg";
 /**
  * Objet décrivant le "feature" dans la barre latèrale
  *
+ * @private
  * @typedef {Object} SideBarLinkObject
  * @property {any} icon Content la ressource définisant l'icône à afficher
  * @property {string} alt Le texte alternatif de l'icône
@@ -16,6 +17,7 @@ import zenIcon from "../assets/icons/zen.svg";
 /**
  * Tableau des fonctionnalités (features) dans la barre latèrale
  *
+ * @private
  * @type {Array.<SideBarLinkObject>}
  */
 const sideBarLinks = [

@@ -116,6 +116,7 @@ function ActivityChart({ data }) {
  * souris est sur un élément du graphique. Il gère les unités pour différents types
  * de données (poids, calories, etc.).
  *
+ * @private
  * @param {{payload: Array.<Object>}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).

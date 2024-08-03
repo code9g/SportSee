@@ -77,7 +77,10 @@ function AverageChart({ data }) {
           fontSize="1.2rem"
           fontWeight={500}
         />
-        <Tooltip content={<CustomTooltip />} cursor={<AverageCustomCursor />} />
+        <Tooltip
+          content={<AverageCustomTooltip />}
+          cursor={<AverageCustomCursor />}
+        />
       </LineChart>
     </ResponsiveContainer>
   );
@@ -87,13 +90,14 @@ function AverageChart({ data }) {
  * Composant de tooltip personnalisé qui affiche une valeur avec l'unité "min"
  * (minutes) lorsqu'un utilisateur survole un élément du graphique.
  *
+ * @private
  * @param {{payload: Array<Object>, active: boolean}} props Les propriétés du composant.
  * @param {Array<Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).
  *
  * @returns {JSX.Element|null} Un élément `div` avec la valeur et l'unité "min" si `payload` contient des données, sinon `null`.
  */
-function CustomTooltip({ payload, active }) {
+function AverageCustomTooltip({ payload, active }) {
   if (active && payload.length) {
     return (
       <div className="tooltip">
@@ -108,6 +112,7 @@ function CustomTooltip({ payload, active }) {
 /**
  * Composant de curseur personnalisé
  *
+ * @private
  * @param {{points: Array<Object>}} params
  * @param {Array<Object>} points Un tableau de points contenant les coordoonnées x et y.
  * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.
@@ -124,7 +129,7 @@ function AverageCustomCursor({ points }) {
   );
 }
 
-CustomTooltip.propTypes = {
+AverageCustomTooltip.propTypes = {
   payload: PropTypes.array,
   active: PropTypes.bool,
 };

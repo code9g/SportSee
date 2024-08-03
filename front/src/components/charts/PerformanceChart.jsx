@@ -46,6 +46,7 @@ function PerformanceChart({ data }) {
  * Composant de tick personnalisé pour afficher des informations sur le
  * type (kind) dans <Text>, permettant d'espacer le texte du radar
  *
+ * @private
  * @param {{payload: Array<Object>, x: number, y: number, cx: number, cy: number}} props Les propriétés du composant.
  * @param {{value: string}} props.payload Les données associées au tooltip, chaque entrée contient la valeur et la clé de données.
  * @param {string} props.payload.value L'intitulé du tooltip

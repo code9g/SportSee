@@ -4,6 +4,7 @@ import logo from "../assets/logo-full.svg";
 /**
  * Objet de définition d'un lien de la barre de navigation (en-tête)
  *
+ * @private
  * @typedef {Object} HeaderLinkObject
  * @property {string} title Titre du lien
  * @property {string} to Route/Chemin du lien
@@ -12,6 +13,7 @@ import logo from "../assets/logo-full.svg";
 /**
  * Liste des liens de navigation et de leur route
  *
+ * @private
  * @type {Array<HeaderLinkObject>}
  */
 const headerLinks = [
@@ -26,6 +28,7 @@ const headerLinks = [
  * se base sur les valeurs de isActive et isPending afin de déterminer quelles classes
  * sont à retourner, sachant que la classe nav-link sera systématiquement incluse.
  *
+ * @private
  * @param {{ isActive: boolean, isPending: boolean }} params
  * @param {boolean} params.isActive Toto
  * @param {boolean} params.isPending

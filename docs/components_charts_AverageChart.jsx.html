@@ -105,7 +105,10 @@ function AverageChart({ data }) {
           fontSize="1.2rem"
           fontWeight={500}
         />
-        &lt;Tooltip content={&lt;CustomTooltip />} cursor={&lt;AverageCustomCursor />} />
+        &lt;Tooltip
+          content={&lt;AverageCustomTooltip />}
+          cursor={&lt;AverageCustomCursor />}
+        />
       &lt;/LineChart>
     &lt;/ResponsiveContainer>
   );
@@ -115,13 +118,14 @@ function AverageChart({ data }) {
  * Composant de tooltip personnalisé qui affiche une valeur avec l'unité "min"
  * (minutes) lorsqu'un utilisateur survole un élément du graphique.
  *
+ * @private
  * @param {{payload: Array&lt;Object>, active: boolean}} props Les propriétés du composant.
  * @param {Array&lt;Object>} props.payload Les données associées au tooltip. Chaque entrée contient une valeur à afficher.
  * @param {boolean} props.active Indique si le tooltip est actif (affiché).
  *
  * @returns {JSX.Element|null} Un élément `div` avec la valeur et l'unité "min" si `payload` contient des données, sinon `null`.
  */
-function CustomTooltip({ payload, active }) {
+function AverageCustomTooltip({ payload, active }) {
   if (active &amp;&amp; payload.length) {
     return (
       &lt;div className="tooltip">
@@ -136,6 +140,7 @@ function CustomTooltip({ payload, active }) {
 /**
  * Composant de curseur personnalisé
  *
+ * @private
  * @param {{points: Array&lt;Object>}} params
  * @param {Array&lt;Object>} points Un tableau de points contenant les coordoonnées x et y.
  * @returns {JSX.Element} A JSX element représentant le curseur personnalisé.
@@ -152,7 +157,7 @@ function AverageCustomCursor({ points }) {
   );
 }
 
-CustomTooltip.propTypes = {
+AverageCustomTooltip.propTypes = {
   payload: PropTypes.array,
   active: PropTypes.bool,
 };
@@ -176,13 +181,13 @@ export default AverageChart;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#ActivityCustomTooltip">ActivityCustomTooltip</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#AverageChart">AverageChart</a></li><li><a href="global.html#AverageCustomCursor">AverageCustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Developper">Developper</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyMetrics">KeyMetrics</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#NoData">NoData</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#NotYetImplemented">NotYetImplemented</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#PerformanceCustomTick">PerformanceCustomTick</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#URL_API">URL_API</a></li><li><a href="global.html#UserContext">UserContext</a></li><li><a href="global.html#UserProvider">UserProvider</a></li><li><a href="global.html#activityUnits">activityUnits</a></li><li><a href="global.html#classNavLink">classNavLink</a></li><li><a href="global.html#dayOfWeek">dayOfWeek</a></li><li><a href="global.html#fetchApi">fetchApi</a></li><li><a href="global.html#fetchUserActivityApi">fetchUserActivityApi</a></li><li><a href="global.html#fetchUserApi">fetchUserApi</a></li><li><a href="global.html#fetchUserAverageSessionsApi">fetchUserAverageSessionsApi</a></li><li><a href="global.html#fetchUserPerformanceApi">fetchUserPerformanceApi</a></li><li><a href="global.html#headerLinks">headerLinks</a></li><li><a href="global.html#kinds">kinds</a></li><li><a href="global.html#metrics">metrics</a></li><li><a href="global.html#sections">sections</a></li><li><a href="global.html#sideBarLinks">sideBarLinks</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUser">useUser</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityChart">ActivityChart</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#AverageChart">AverageChart</a></li><li><a href="global.html#Developper">Developper</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyMetrics">KeyMetrics</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#Loading">Loading</a></li><li><a href="global.html#NoData">NoData</a></li><li><a href="global.html#NotFound">NotFound</a></li><li><a href="global.html#NotYetImplemented">NotYetImplemented</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#URL_API">URL_API</a></li><li><a href="global.html#UserContext">UserContext</a></li><li><a href="global.html#UserProvider">UserProvider</a></li><li><a href="global.html#activityUnits">activityUnits</a></li><li><a href="global.html#dayOfWeek">dayOfWeek</a></li><li><a href="global.html#fetchApi">fetchApi</a></li><li><a href="global.html#fetchUserActivityApi">fetchUserActivityApi</a></li><li><a href="global.html#fetchUserApi">fetchUserApi</a></li><li><a href="global.html#fetchUserAverageSessionsApi">fetchUserAverageSessionsApi</a></li><li><a href="global.html#fetchUserPerformanceApi">fetchUserPerformanceApi</a></li><li><a href="global.html#kinds">kinds</a></li><li><a href="global.html#metrics">metrics</a></li><li><a href="global.html#sections">sections</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#useUser">useUser</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Aug 03 2024 12:37:10 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Aug 03 2024 12:53:29 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>
