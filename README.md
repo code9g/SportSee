@@ -1,5 +1,12 @@
 # SportSee
 
+![html][html5-badge]
+![css][css3-badge]
+![javascript][javascript-badge]
+![react][react-badge]
+![sass][sass-badge]
+![vscode][vscode-badge]
+
 Projet 12 de la formation "Développeur JavaScript / React" de OpenClassRoom
 
 Développez un tableau de bord d'analytics avec React
