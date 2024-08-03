@@ -69,7 +69,7 @@ npm run dev
 
 ## Note
 
-Si vous avez déjà installez les dépendances, vous pouvez directement lancer la partie back et la partie front depuit la racine du projet avec :
+Si vous avez déjà installé les dépendances, vous pouvez directement lancer la partie back et la partie front depuit la racine du projet avec :
 
 ```
 npm run back
