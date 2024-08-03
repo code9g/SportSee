@@ -10,17 +10,21 @@
 
 Projet 12 de la formation "Développeur JavaScript / React" de OpenClassRoom
 
+## Description
+
 Développez un tableau de bord d'analytics avec React
 
-## Mise en garde
+![Screenshot](./images/profil.png)
+
+Vous travaillez en tant que développeur chez SportSee, une startup dédiée au coaching sportif. En pleine croissance, l’entreprise va aujourd’hui lancer une nouvelle version de la page profil de l’utilisateur. Cette page va notamment permettre à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées.
+
+## Installation
 
 Ce projet a été testé et réalisé avec la version 20.15.1 de Node.js
 
-## Mise en place de la partie back
+### Partie Back
 
-Cette partie utilise de préférence yarn, cependant, vous pouvez également le faire avec npm, ou passer par docker (pour cela je vous recommande de suivre le [README.md](./back/README.md#3-project-with-docker) du back).
-
-### Avec yarn
+Cette partie utilise de préférence yarn, cependant, vous pouvez également le faire avec npm, ou passer par docker (pour cela je vous recommande de suivre le [README](./back/README.md#3-project-with-docker) du back).
 
 Installer les dépendances :
 
@@ -36,23 +40,7 @@ cd back
 yarn start
 ```
 
-### Avec npm
-
-Installer les dépendances :
-
-```
-cd back
-npm install
-```
-
-Lancer le back :
-
-```
-cd back
-npm run dev
-```
-
-## Mise en place de la partie front
+### Partie Front
 
 Dans un nouveal terminal :
 
@@ -67,7 +55,7 @@ Et lancer le projet avec :
 npm run dev
 ```
 
-## Note
+## Lancement
 
 Si vous avez déjà installé les dépendances, vous pouvez directement lancer la partie back et la partie front depuit la racine du projet avec :
 
@@ -87,22 +75,7 @@ La documentation a été réalisé en utilisant la syntaxe de jsdoc, permettant 
 qui affiche un tooltip lorsque la souris passe sur un élément avec une documentation jsdoc, mais également de générer "automatiquement"
 un document html.
 
-Pour générer la documentation html, il faut que jsdoc et better-docs soit installé (de préférence en global) avec :
-
-```
-npm install -g jsdoc
-npm install -g better-docs
-```
-
-Puis de lancer la commande :
-
-```
-npm run docs
-```
-
 La documentation est accessible [ici](https://code9g.github.io/SportSee/)
-
-Note : La documentation sera généré à la racine du projet, afin de faciliter l'affichage via la page github.
 
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](<[http://](https://github.com/code9g/)>)
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pierre-andre-henry/)
