@@ -31,7 +31,7 @@ const headerLinks = [
  * @param {boolean} params.isPending
  * @returns {string} Liste des classes séparées par un espace
  */
-const state = ({ isActive, isPending }) =>
+const classNavLink = ({ isActive, isPending }) =>
   "nav-link " + (isPending ? "pending" : isActive ? "active" : "");
 
 /**
@@ -49,7 +49,7 @@ function Header() {
         <ul className="nav-menu">
           {headerLinks.map(({ title, to }, index) => (
             <li key={index} className="nav-item">
-              <NavLink xclassName="nav-link" to={to} className={state}>
+              <NavLink xclassName="nav-link" to={to} className={classNavLink}>
                 {title}
               </NavLink>
             </li>
