@@ -55,8 +55,9 @@ function useFetch(id, fetcher, title, defaultData) {
           console.warn(`Annulation du chargement des données '${title}' !`);
           setIsAborted(true);
         } else {
-          setError(`Echec de chargement des données '${title}' !`);
+          setError(`Echec de chargement des données !`);
           console.error(e);
+          setIsAborted(false);
         }
       })
       .finally(() => {

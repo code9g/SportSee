@@ -12,7 +12,7 @@ import { URL_API } from "../utils/consts";
  * @returns {Promesse} Retourne une promesse
  */
 const fetchApi = async (id, endpoints, ...args) =>
-  fetch(`${URL_API}/user/${id}${endpoints}`, ...args)
+  fetch(`${URL_API}/user/${id}/${endpoints}`, ...args)
     .then((response) => response.json())
     .then((json) => json?.data);
 

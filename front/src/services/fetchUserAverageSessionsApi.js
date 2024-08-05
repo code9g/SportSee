@@ -10,7 +10,7 @@ import fetchApi from "./fetchApi";
  * @returns {Promesse} Retourne une promesse
  */
 const fetchUserAverageSessionsApi = async (userId, ...args) =>
-  fetchApi(userId, "/average-sessions", ...args).then(
+  fetchApi(userId, "average-sessions", ...args).then(
     (average) => average?.sessions
   );
 

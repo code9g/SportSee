@@ -25,44 +25,33 @@
   width: 100%;
 }
 
-.error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  font-size: 2em;
-  font-weight: 700;
-
-  color: var(--primary-color);
-}
-
-.no-data {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  font-size: 2em;
-  font-weight: 700;
-
-  color: var(--secondary-color);
-}
-
+.error,
+.no-data,
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
 
+  text-align: center;
+
   width: 100%;
   height: 100%;
 
-  font-size: 1em;
+  font-size: 2rem;
   font-weight: 700;
 
+  padding: 1rem;
+}
+
+.error {
+  color: var(--primary-color);
+}
+
+.no-data {
+  color: var(--secondary-color);
+}
+
+.loading {
+  font-size: 1em;
   color: var(--secondary-color);
 }

@@ -10,6 +10,6 @@ import fetchApi from "./fetchApi";
  * @returns {Promesse} Retourne une promesse
  */
 const fetchUserActivityApi = async (userId, ...args) =>
-  fetchApi(userId, "/activity", ...args).then((activity) => activity.sessions);
+  fetchApi(userId, "xactivity", ...args).then((activity) => activity.sessions);
 
 export default fetchUserActivityApi;
