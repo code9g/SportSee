@@ -31,9 +31,10 @@ import { useEffect, useState } from "react";
  * @param {function} fetcher Fonction asynchrone pour récupèrer les données (async)
  * @param {string} title Titre informatif des données pour l'affichage des données et des erreurs dans la console
  * @param {*} defaultData Données à utiliser par défaut
+ * @param {boolean} [mocked=false] Indique si les données doivent être "mocké"
  * @returns {UseFetchObject} Un objet
  */
-function useFetch(id, fetcher, title, defaultData) {
+function useFetch(id, fetcher, title, defaultData, mocked = false) {
   const [data, setData] = useState(defaultData);
   const [isLoading, setIsLoading] = useState(true);
   const [isAborted, setIsAborted] = useState(false);
@@ -42,7 +43,7 @@ function useFetch(id, fetcher, title, defaultData) {
   useEffect(() => {
     const abortController = new AbortController();
     setIsLoading(true);
-    fetcher(id, { signal: abortController.signal })
+    fetcher(id, mocked, { signal: abortController.signal })
       .then((data) => {
         setData(data);
         setError(null);

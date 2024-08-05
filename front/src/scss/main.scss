@@ -25,10 +25,12 @@
 @use "layout/score-section";
 
 // 4. Components
+@use "components/switch";
 @use "components/metrics";
 
 // 5. Pages
 @use "pages/profil";
+@use "pages/setting";
 
 // 6. Themes
 @use "themes/default";

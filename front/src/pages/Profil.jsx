@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import NoData from "../components/NoData";
 import Performance from "../components/Performance";
 import Score from "../components/Score";
+import useApp from "../hooks/useApp";
 import useFetch from "../hooks/useFetch";
 import UserProvider from "../providers/UserProvider";
 import fetchUserApi from "../services/fetchUserApi";
@@ -43,12 +44,20 @@ const sections = [
  * @returns {JSX.Element} Un élément JSX contenant la page de profil.
  */
 function Profil({ id }) {
+  const { userId, mocked } = useApp();
+
+  if (id === undefined) {
+    id = userId;
+  }
+
+  console.log("id:", id, "mocked:", mocked, "userId:", userId);
+
   const {
     isLoading,
     isAborted,
     error,
     data: user,
-  } = useFetch(id, fetchUserApi, "user", null);
+  } = useFetch(id, fetchUserApi, "user", null, mocked);
 
   if (isLoading || isAborted) {
     return <Loading />;
@@ -64,7 +73,7 @@ function Profil({ id }) {
 
   return (
     <UserProvider user={user}>
-      <div className="container">
+      <div className="profil container">
         <div className="info">
           <h2 className="title">
             Bonjour{" "}
@@ -87,7 +96,7 @@ function Profil({ id }) {
 }
 
 Profil.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
 };
 
 export default Profil;

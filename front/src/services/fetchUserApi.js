@@ -6,9 +6,11 @@ import fetchApi from "./fetchApi";
  *
  * @async
  * @param {number} id Identifiant de l'utilisateur
+ * @param {boolean} mocked Indique si les données doivent être "mocké"
  * @param {Array} args Liste des arguments à inclure dans l'appel de l'api
  * @returns {Promesse} Retourne une promesse
  */
-const fetchUserApi = async (id, ...args) => fetchApi(id, "", ...args);
+const fetchUserApi = async (id, mocked, ...args) =>
+  fetchApi(id, mocked, "", ...args);
 
 export default fetchUserApi;

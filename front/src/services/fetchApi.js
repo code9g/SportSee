@@ -7,12 +7,18 @@ import { URL_API } from "../utils/consts";
  *
  * @async
  * @param {number} id Identifiant de l'utilisateur
+ * @param {boolean} mocked Indique si les données doivent être "mocké"
  * @param {string} endpoints Endpoints de l'API REST
  * @param {Array} args Liste des arguments à inclure dans l'appel de l'api
  * @returns {Promesse} Retourne une promesse
  */
-const fetchApi = async (id, endpoints, ...args) =>
-  fetch(`${URL_API}/user/${id}/${endpoints}`, ...args)
+const fetchApi = async (id, mocked, endpoints, ...args) =>
+  fetch(
+    mocked
+      ? `/user/${id}/${endpoints}.json`
+      : `${URL_API}/user/${id}/${endpoints}`,
+    ...args
+  )
     .then((response) => response.json())
     .then((json) => json?.data);
 
