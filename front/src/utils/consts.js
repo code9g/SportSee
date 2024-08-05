@@ -66,13 +66,13 @@ export const metrics = [
  * Tableau d'objets contenant les labels associés à l'indice de la categorie
  * Les clés correspondent à l'indice de la catégorie (1: cardio, etc...)
  *
- * @type {Object.<Number, String>}
+ * @type {Object.<string, string>}
  **/
 export const kinds = {
-  1: "Cardio",
-  2: "Energie",
-  3: "Endurance",
-  4: "Force",
-  5: "Vitesse",
-  6: "Intensité",
+  cardio: "Cardio",
+  energy: "Energie",
+  endurance: "endurance",
+  strength: "Force",
+  speed: "Vitesse",
+  intensity: "Intesité",
 };

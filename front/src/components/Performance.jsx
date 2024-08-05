@@ -34,12 +34,21 @@ function Performance() {
     return <Error message={error} />;
   }
 
-  if (!performance || performance.length === 0) {
+  if (
+    !performance ||
+    !performance.data ||
+    !performance.kind ||
+    performance.data.length === 0 ||
+    performance.kind.length === 0
+  ) {
     return <NoData />;
   }
 
   const data = performance.data
-    .map((item) => ({ value: item.value, kind: kinds[item.kind] ?? "???" }))
+    .map((item) => ({
+      value: item.value,
+      kind: kinds[performance.kind[item.kind] ?? null] ?? "???",
+    }))
     .reverse();
 
   return <PerformanceChart data={data} />;
