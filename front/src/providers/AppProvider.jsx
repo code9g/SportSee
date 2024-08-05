@@ -12,14 +12,14 @@ import AppContext from "../contexts/AppContext";
  * @returns {JSX.Element} Retourne le provider du contexte AppContext avec ses enfants
  */
 function AppProvider({ children }) {
-  const [userId, setUserId] = useState(18);
-  const [mocked, setMocked] = useState(false);
+  const [defaultProfilId, setDefaultProfilId] = useState(18);
+  const [isMock, setIsMock] = useState(false);
 
   const value = {
-    userId,
-    setUserId,
-    mocked,
-    setMocked,
+    defaultProfilId,
+    setDefaultProfilId,
+    isMock,
+    setIsMock,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

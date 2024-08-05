@@ -40,24 +40,22 @@ const sections = [
  *
  * @component
  * @param {{id: number}} props Les propriétés du composant.
- * @param {number} props.id Id de l'utilisateur.
+ * @param {number} [props.id] Id de l'utilisateur.
  * @returns {JSX.Element} Un élément JSX contenant la page de profil.
  */
 function Profil({ id }) {
-  const { userId, mocked } = useApp();
+  const { defaultProfilId } = useApp();
 
   if (id === undefined) {
-    id = userId;
+    id = defaultProfilId;
   }
-
-  console.log("id:", id, "mocked:", mocked, "userId:", userId);
 
   const {
     isLoading,
     isAborted,
     error,
     data: user,
-  } = useFetch(id, fetchUserApi, "user", null, mocked);
+  } = useFetch(id, fetchUserApi, "user", null);
 
   if (isLoading || isAborted) {
     return <Loading />;

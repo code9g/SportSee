@@ -8,7 +8,7 @@ import useApp from "../hooks/useApp";
  * @returns {JSX.Element} Un élément JSX contenant la page de réglage.
  */
 function Setting() {
-  const { userId, setUserId, mocked, setMocked } = useApp();
+  const { defaultProfilId, setDefaultProfilId, isMock, setIsMock } = useApp();
 
   const users = [
     { id: 12, name: "Karl" },
@@ -25,9 +25,9 @@ function Setting() {
             <input
               id="mocked"
               type="checkbox"
-              value={mocked}
-              onChange={() => setMocked((curr) => !curr)}
-              checked={mocked}
+              value={isMock}
+              onChange={() => setIsMock((curr) => !curr)}
+              checked={isMock}
             />
             <span className="slider round"></span>
           </label>
@@ -36,10 +36,10 @@ function Setting() {
           <label htmlFor="userid">Utilisateur par défaut (Profil)</label>
           <select
             id="userid"
-            value={userId}
+            value={defaultProfilId}
             onChange={(e) => {
               console.log(e.target.value);
-              setUserId(parseInt(e.target.value, 10));
+              setDefaultProfilId(parseInt(e.target.value, 10));
             }}
           >
             <option value="12">Karl</option>
