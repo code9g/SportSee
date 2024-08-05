@@ -19,7 +19,7 @@ function UserProvider({ user, children }) {
 
 UserProvider.propTypes = {
   user: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.any,
 };
 
 export default UserProvider;

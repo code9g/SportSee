@@ -26,7 +26,7 @@ function AppProvider({ children }) {
 }
 
 AppProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.any,
 };
 
 export default AppProvider;

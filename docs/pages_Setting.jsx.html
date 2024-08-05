@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Performance.jsx</title>
+    <title>JSDoc: Source: pages/Setting.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Performance.jsx</h1>
+    <h1 class="page-title">Source: pages/Setting.jsx</h1>
 
     
 
@@ -26,54 +26,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import useFetch from "../hooks/useFetch";
-import useUser from "../hooks/useUser";
-import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
-import { kinds } from "../utils/consts";
-import Error from "./Error";
-import Loading from "./Loading";
-import NoData from "./NoData";
-import PerformanceChart from "./charts/PerformanceChart";
+            <pre class="prettyprint source linenums"><code>import { Link } from "react-router-dom";
+import useApp from "../hooks/useApp";
 
 /**
- * Composant pour charger les données et afficher les performances de l'utilisateur sous forme de
- * graphique radar.
- *
- * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ * Composant pour afficher la page de réglage
  *
  * @component
- * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
+ * @returns {JSX.Element} Un élément JSX contenant la page de réglage.
  */
-function Performance() {
-  const { user } = useUser();
+function Setting() {
+  const { userId, setUserId, mocked, setMocked } = useApp();
 
-  const {
-    isLoading,
-    isAborted,
-    error,
-    data: performance,
-  } = useFetch(user.id, fetchUserPerformanceApi, "performance", []);
+  const users = [
+    { id: 12, name: "Karl" },
+    { id: 18, name: "Cecilia" },
+  ];
 
-  if (isLoading || isAborted) {
-    return &lt;Loading />;
-  }
-
-  if (error) {
-    return &lt;Error message={error} />;
-  }
-
-  if (!performance || performance.length === 0) {
-    return &lt;NoData />;
-  }
-
-  const data = performance.data
-    .map((item) => ({ value: item.value, kind: kinds[item.kind] ?? "???" }))
-    .reverse();
-
-  return &lt;PerformanceChart data={data} />;
+  return (
+    &lt;div className="setting container">
+      &lt;section>
+        &lt;h2 className="title">Général&lt;/h2>
+        &lt;div className="input-group">
+          &lt;label htmlFor="mocked">Utiliser les données locales&lt;/label>
+          &lt;label className="switch">
+            &lt;input
+              id="mocked"
+              type="checkbox"
+              value={mocked}
+              onChange={() => setMocked((curr) => !curr)}
+              checked={mocked}
+            />
+            &lt;span className="slider round">&lt;/span>
+          &lt;/label>
+        &lt;/div>
+        &lt;div className="input-group">
+          &lt;label htmlFor="userid">Utilisateur par défaut (Profil)&lt;/label>
+          &lt;select
+            id="userid"
+            value={userId}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setUserId(parseInt(e.target.value, 10));
+            }}
+          >
+            &lt;option value="12">Karl&lt;/option>
+            &lt;option value="18">Cécilia&lt;/option>
+          &lt;/select>
+        &lt;/div>
+      &lt;/section>
+      &lt;section>
+        &lt;h2 className="title">Développeur&lt;/h2>
+        &lt;div>
+          {users.map((user) => (
+            &lt;p key={user.id}>
+              Aller vers{" "}
+              &lt;Link style={{ color: "red" }} to={`/user/${user.id}`}>
+                {`/user/${user.id}`}
+              &lt;/Link>{" "}
+              --- {user.name}
+            &lt;/p>
+          ))}
+        &lt;/div>
+      &lt;/section>
+    &lt;/div>
+  );
 }
 
-export default Performance;
+export default Setting;
 </code></pre>
         </article>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Error</title>
+    <title>JSDoc: Class: AppProvider</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Error</h1>
+    <h1 class="page-title">Class: AppProvider</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Error<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>AppProvider<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Error"><span class="type-signature"></span>new Error<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    <h4 class="name" id="AppProvider"><span class="type-signature"></span>new AppProvider<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
     
 
     
@@ -49,7 +49,8 @@
 
 
 <div class="description">
-    <p>Ce composant affiche un message d'erreur personnalisé.</p>
+    <p>Composant de mise en place d'un provider du contexte AppContext,
+afin de &quot;partager&quot; les données globales, en évitant le &quot;props drilling&quot;</p>
 </div>
 
 
@@ -101,7 +102,7 @@
 
             
 
-            <td class="description last"><p>Les propriétés du composant.</p>
+            <td class="description last">
                 <h6>Properties</h6>
                 
 
@@ -115,11 +116,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -131,39 +128,23 @@
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>children</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">any</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    "Une erreur inconnue à eu lieu !"
-                
-                </td>
-            
 
-            <td class="description last"><p>Le message d'erreur.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -211,7 +192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Error.jsx.html">components/Error.jsx</a>, <a href="components_Error.jsx.html#line11">line 11</a>
+        <a href="providers_AppProvider.jsx.html">providers/AppProvider.jsx</a>, <a href="providers_AppProvider.jsx.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -240,7 +221,7 @@
 
         
 <div class="param-desc">
-    <p>Un élément <code>div</code> avec le message d'erreur.</p>
+    <p>Retourne le provider du contexte AppContext avec ses enfants</p>
 </div>
 
 

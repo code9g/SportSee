@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Performance.jsx</title>
+    <title>JSDoc: Source: providers/AppProvider.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Performance.jsx</h1>
+    <h1 class="page-title">Source: providers/AppProvider.jsx</h1>
 
     
 
@@ -26,54 +26,38 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import useFetch from "../hooks/useFetch";
-import useUser from "../hooks/useUser";
-import fetchUserPerformanceApi from "../services/fetchUserPerformanceApi";
-import { kinds } from "../utils/consts";
-import Error from "./Error";
-import Loading from "./Loading";
-import NoData from "./NoData";
-import PerformanceChart from "./charts/PerformanceChart";
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types";
+import { useState } from "react";
+import AppContext from "../contexts/AppContext";
 
 /**
- * Composant pour charger les données et afficher les performances de l'utilisateur sous forme de
- * graphique radar.
- *
- * Note: Il nécessite d'être utilisé dans un contexte "UserContext"
+ * Composant de mise en place d'un provider du contexte AppContext,
+ * afin de "partager" les données globales, en évitant le "props drilling"
  *
  * @component
- * @returns {JSX.Element} Un élément JSX contenant le graphique radar.
+ * @param {{ children: any }} props
+ * @param {any} props.children
+ * @returns {JSX.Element} Retourne le provider du contexte AppContext avec ses enfants
  */
-function Performance() {
-  const { user } = useUser();
+function AppProvider({ children }) {
+  const [userId, setUserId] = useState(18);
+  const [mocked, setMocked] = useState(false);
 
-  const {
-    isLoading,
-    isAborted,
-    error,
-    data: performance,
-  } = useFetch(user.id, fetchUserPerformanceApi, "performance", []);
+  const value = {
+    userId,
+    setUserId,
+    mocked,
+    setMocked,
+  };
 
-  if (isLoading || isAborted) {
-    return &lt;Loading />;
-  }
-
-  if (error) {
-    return &lt;Error message={error} />;
-  }
-
-  if (!performance || performance.length === 0) {
-    return &lt;NoData />;
-  }
-
-  const data = performance.data
-    .map((item) => ({ value: item.value, kind: kinds[item.kind] ?? "???" }))
-    .reverse();
-
-  return &lt;PerformanceChart data={data} />;
+  return &lt;AppContext.Provider value={value}>{children}&lt;/AppContext.Provider>;
 }
 
-export default Performance;
+AppProvider.propTypes = {
+  children: PropTypes.any,
+};
+
+export default AppProvider;
 </code></pre>
         </article>
     </section>
