@@ -67,7 +67,7 @@ function useFetch(id, fetcher, title, defaultData, mocked = false) {
     return () => {
       abortController.abort();
     };
-  }, [id, title, fetcher]);
+  }, [id, title, mocked, fetcher]);
 
   return { data, isLoading, isAborted, error };
 }
