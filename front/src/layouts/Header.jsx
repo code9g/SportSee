@@ -53,7 +53,7 @@ function Header() {
         <ul className="nav-menu">
           {headerLinks.map(({ title, to }, index) => (
             <li key={index} className="nav-item">
-              <NavLink xclassName="nav-link" to={to} className={classNavLink}>
+              <NavLink to={to} className={classNavLink}>
                 {title}
               </NavLink>
             </li>
