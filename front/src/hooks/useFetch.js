@@ -50,15 +50,15 @@ function useFetch(id, fetcher, title, defaultData) {
         console.log(`Données '${title}':`, data);
       })
       .catch((e) => {
-        if (e instanceof DOMException && e.name === "AbortError") {
-          setError(`Annulation du chargement des données '${title}' !`);
+        const isAborted = e instanceof DOMException && e.name === "AbortError";
+        if (isAborted) {
+          setError(`Annulation du chargement des données !`);
           console.warn(`Annulation du chargement des données '${title}' !`);
-          setIsAborted(true);
         } else {
           setError(`Echec de chargement des données !`);
           console.error(e);
-          setIsAborted(false);
         }
+        setIsAborted(isAborted);
       })
       .finally(() => {
         setIsLoading(false);
