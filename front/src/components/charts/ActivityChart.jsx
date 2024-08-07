@@ -9,7 +9,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { activityUnits } from "../../utils/consts";
 
 /**
  * Objet représentant les données d'une activité (kg et kCal)
@@ -128,10 +127,10 @@ function ActivityCustomTooltip({ payload, active }) {
   if (active) {
     return (
       <div className="tooltip">
-        {payload.map(({ dataKey, value }, index) => (
+        {payload.map(({ value, unit }, index) => (
           <p key={index}>
             {value}
-            {activityUnits[dataKey.toLowerCase()] ?? ""}
+            {unit}
           </p>
         ))}
       </div>

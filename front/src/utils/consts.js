@@ -11,14 +11,6 @@ import proteinIcon from "../assets/icons/protein.svg";
 export const URL_API = "http://localhost:3000";
 
 /**
- * Tableau d'objets contenant les unités associés au clé
- * Les clés correspondent au type d'unité
- *
- * @type {Object.<string, string>}
- */
-export const activityUnits = { kilogram: "kg", calories: "kCal" };
-
-/**
  * Objet contenant les abréviations des jours de la semaine.
  * Les clés correspondent aux numéros des jours (1: lundi, 2: mardi, etc.).
  *
