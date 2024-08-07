@@ -42,8 +42,11 @@ function Setting() {
               setDefaultProfilId(parseInt(e.target.value, 10));
             }}
           >
-            <option value="12">Karl</option>
-            <option value="18">Cécilia</option>
+            {users.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
+            ))}
           </select>
         </div>
       </section>
