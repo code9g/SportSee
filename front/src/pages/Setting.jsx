@@ -38,7 +38,6 @@ function Setting() {
             id="userid"
             value={defaultProfilId}
             onChange={(e) => {
-              console.log(e.target.value);
               setDefaultProfilId(parseInt(e.target.value, 10));
             }}
           >
