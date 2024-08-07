@@ -26,20 +26,18 @@ import {
  */
 function PerformanceChart({ data }) {
   return (
-    <section className="performance">
-      <ResponsiveContainer width="100%" height={260}>
-        <RadarChart outerRadius="70%" data={data}>
-          <PolarGrid radialLines={false} stroke="#ffffff" />
-          <PolarAngleAxis
-            dataKey="kind"
-            tickLine={false}
-            tick={PerformanceCustomTick}
-          />
-          <PolarRadiusAxis axisLine={false} tick={false} tickLine={false} />
-          <Radar dataKey="value" stroke="none" fill="rgba(255, 1, 1, 0.70)" />
-        </RadarChart>
-      </ResponsiveContainer>
-    </section>
+    <ResponsiveContainer>
+      <RadarChart outerRadius="70%" data={data}>
+        <PolarGrid radialLines={false} stroke="#ffffff" />
+        <PolarAngleAxis
+          dataKey="kind"
+          tickLine={false}
+          tick={PerformanceCustomTick}
+        />
+        <PolarRadiusAxis axisLine={false} tick={false} tickLine={false} />
+        <Radar dataKey="value" stroke="none" fill="rgba(255, 1, 1, 0.70)" />
+      </RadarChart>
+    </ResponsiveContainer>
   );
 }
 

@@ -33,7 +33,7 @@ import { activityUnits } from "../../utils/consts";
  */
 function ActivityChart({ data }) {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer>
       <BarChart data={data} barGap={12} barSize={8}>
         <text
           x={0}

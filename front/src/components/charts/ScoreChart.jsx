@@ -13,7 +13,7 @@ function ScoreChart({ score }) {
   const data = [{ name: "Score", value: score }];
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer>
       <RadialBarChart
         innerRadius="0%"
         outerRadius="0%"
