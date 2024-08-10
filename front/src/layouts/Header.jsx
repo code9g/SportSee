@@ -24,20 +24,6 @@ const headerLinks = [
 ];
 
 /**
- * Fonction permettant de définir les classes à utiliser pour le NavLink,
- * se base sur les valeurs de isActive et isPending afin de déterminer quelles classes
- * sont à retourner, sachant que la classe nav-link sera systématiquement incluse.
- *
- * @private
- * @param {{ isActive: boolean, isPending: boolean }} params
- * @param {boolean} params.isActive Toto
- * @param {boolean} params.isPending
- * @returns {string} Liste des classes séparées par un espace
- */
-const classNavLink = ({ isActive, isPending }) =>
-  "nav-link " + (isPending ? "pending" : isActive ? "active" : "");
-
-/**
  * Composant pour afficher l'en-tête du dashboard
  *
  * @component
@@ -53,7 +39,7 @@ function Header() {
         <ul className="nav-menu">
           {headerLinks.map(({ title, to }, index) => (
             <li key={index} className="nav-item">
-              <NavLink to={to} className={classNavLink}>
+              <NavLink to={to} className="nav-link">
                 {title}
               </NavLink>
             </li>
